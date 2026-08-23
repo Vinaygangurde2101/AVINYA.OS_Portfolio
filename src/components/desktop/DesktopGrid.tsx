@@ -25,19 +25,21 @@ const DESKTOP_ITEMS: DesktopIconItem[] = [
 ];
 
 const DEFAULT_POSITIONS: Record<string, { x: number; y: number }> = {
-  about: { x: 24, y: 24 },
-  'ai-assistant': { x: 24, y: 236 },
-  projects: { x: 24, y: 448 },
-  skills: { x: 140, y: 24 },
-  experience: { x: 140, y: 236 },
-  achievements: { x: 140, y: 448 },
-  resume: { x: 256, y: 24 },
-  contact: { x: 256, y: 236 },
-  terminal: { x: 256, y: 448 },
-  browser: { x: 372, y: 24 },
-  arcade: { x: 372, y: 236 },
-  architecture: { x: 372, y: 448 },
-  settings: { x: 488, y: 24 }
+  about: { x: 24, y: 20 },
+  'ai-assistant': { x: 24, y: 120 },
+  projects: { x: 24, y: 220 },
+  skills: { x: 24, y: 320 },
+  experience: { x: 24, y: 420 },
+
+  achievements: { x: 140, y: 20 },
+  resume: { x: 140, y: 120 },
+  contact: { x: 140, y: 220 },
+  terminal: { x: 140, y: 320 },
+  browser: { x: 140, y: 420 },
+
+  arcade: { x: 256, y: 20 },
+  architecture: { x: 256, y: 120 },
+  settings: { x: 256, y: 220 }
 };
 
 const POSITIONS_STORAGE_KEY = 'avinya_os_desktop_icon_positions_v3';
@@ -63,7 +65,7 @@ export const DesktopGrid: React.FC = () => {
         Object.keys(parsed).forEach((key) => {
           sanitized[key] = {
             x: Math.max(10, Math.min(parsed[key].x, window.innerWidth - 110)),
-            y: Math.max(10, Math.min(parsed[key].y, 460))
+            y: Math.max(10, Math.min(parsed[key].y, 480))
           };
         });
         return sanitized;
@@ -123,16 +125,16 @@ export const DesktopGrid: React.FC = () => {
 
   const rearrangeSortedList = (sortedList: DesktopIconItem[]) => {
     const newPos: Record<string, { x: number; y: number }> = {};
-    const itemsPerCol = 3;
+    const itemsPerCol = 5;
     const colWidth = iconSize === 'large' ? 150 : iconSize === 'small' ? 110 : 130;
-    const rowHeight = iconSize === 'large' ? 220 : iconSize === 'small' ? 190 : 212;
+    const rowHeight = iconSize === 'large' ? 110 : iconSize === 'small' ? 90 : 100;
 
     sortedList.forEach((item, idx) => {
       const col = Math.floor(idx / itemsPerCol);
       const row = idx % itemsPerCol;
       newPos[item.id] = {
         x: 24 + col * colWidth,
-        y: 24 + row * rowHeight
+        y: 20 + row * rowHeight
       };
     });
 
@@ -237,7 +239,7 @@ export const DesktopGrid: React.FC = () => {
             onDragEnd={(event, info) => {
               const bounds = containerRef.current?.getBoundingClientRect();
               const maxX = bounds ? bounds.width - 110 : window.innerWidth - 110;
-              const maxY = bounds ? Math.min(bounds.height - 130, 460) : 460;
+              const maxY = bounds ? Math.min(bounds.height - 120, 480) : 480;
 
               const newX = Math.max(10, Math.min(maxX, pos.x + info.offset.x));
               const newY = Math.max(10, Math.min(maxY, pos.y + info.offset.y));
