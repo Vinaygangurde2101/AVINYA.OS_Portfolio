@@ -303,14 +303,14 @@ function queryLocalPortfolioKB(query: string): { text: string; followUps?: strin
     };
   }
 
-  // Contact & Resume
-  if (q.includes('contact') || q.includes('email') || q.includes('github') || q.includes('linkedin') || q.includes('hire') || q.includes('resume') || q.includes('cv') || q.includes('social')) {
+  // Contact, GitHub & Repositories
+  if (q.includes('contact') || q.includes('email') || q.includes('github') || q.includes('repo') || q.includes('linkedin') || q.includes('hire') || q.includes('resume') || q.includes('cv') || q.includes('social')) {
     return {
-      text: `### 📬 Connect With Me Directly!\n\n• **Email**: [vinaygangurde2101@gmail.com](mailto:vinaygangurde2101@gmail.com)\n• **GitHub**: [github.com/Vinaygangurde2101](https://github.com/Vinaygangurde2101)\n• **LinkedIn**: [linkedin.com/in/vinay-gangurde-b3229027b](https://www.linkedin.com/in/vinay-gangurde-b3229027b)\n• **Location**: Shirpur, Maharashtra, India\n• **Resume**: You can view or download my resume PDF directly in this portfolio!`,
+      text: `### 📬 GitHub Profile & Project Repositories\n\n• **GitHub Profile**: [github.com/Vinaygangurde2101](https://github.com/Vinaygangurde2101)\n• **SocialBuddy AI Repo**: [github.com/Vinaygangurde2101/socialbuddy](https://github.com/Vinaygangurde2101/socialbuddy)\n• **MERS Healthcare Repo**: [github.com/Vinaygangurde2101/medical-emergency-response-system](https://github.com/Vinaygangurde2101/medical-emergency-response-system)\n• **WebOn AR Shopping Repo**: [github.com/Vinaygangurde2101/webon-ar-shopping](https://github.com/Vinaygangurde2101/webon-ar-shopping)\n• **AgriConnect Repo**: [github.com/Vinaygangurde2101/agriconnect](https://github.com/Vinaygangurde2101/agriconnect)\n• **AVINYA.OS Portfolio Repo**: [github.com/Vinaygangurde2101/AVINYA.OS_Portfolio](https://github.com/Vinaygangurde2101/AVINYA.OS_Portfolio)\n\n• **Email**: [vinaygangurde2101@gmail.com](mailto:vinaygangurde2101@gmail.com)\n• **LinkedIn**: [linkedin.com/in/vinay-gangurde-b3229027b](https://www.linkedin.com/in/vinay-gangurde-b3229027b)`,
       followUps: [
+        'What are your top AI projects?',
         'Open Resume PDF',
-        'Why should we hire you for an internship?',
-        'Explore All Projects'
+        'Why should we hire you for an internship?'
       ]
     };
   }

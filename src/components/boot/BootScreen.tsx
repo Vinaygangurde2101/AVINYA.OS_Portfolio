@@ -41,7 +41,8 @@ export const BootScreen: React.FC<BootScreenProps> = ({ onComplete }) => {
       <motion.div
         exit={{ opacity: 0, scale: 1.05 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
-        className="fixed inset-0 z-[10000] bg-[#05070d] flex flex-col items-center justify-center p-6 text-slate-100 font-mono select-none"
+        onClick={onComplete}
+        className="fixed inset-0 z-[10000] bg-[#05070d] flex flex-col items-center justify-center p-6 text-slate-100 font-mono select-none cursor-pointer"
       >
         {/* Logo Branding */}
         <div className="relative flex flex-col items-center mb-8">

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useWindowStore } from '../../store/useWindowStore';
+import { useSettingsStore } from '../../store/useSettingsStore';
 import { soundEngine } from '../../utils/soundEngine';
 import {
   Grid,
@@ -14,7 +15,10 @@ import {
   FileText,
   Check,
   Bot,
-  Sparkles
+  Sparkles,
+  Film,
+  Volume2,
+  VolumeX
 } from 'lucide-react';
 
 export type IconSizeType = 'small' | 'medium' | 'large';
@@ -46,6 +50,10 @@ export const DesktopContextMenu: React.FC<ContextMenuProps> = ({
   onRefresh
 }) => {
   const openWindow = useWindowStore((s) => s.openWindow);
+  const wallpaperId = useSettingsStore((s) => s.wallpaperId);
+  const replayVideoWallpaper = useSettingsStore((s) => s.replayVideoWallpaper);
+  const videoWallpaperMuted = useSettingsStore((s) => s.videoWallpaperMuted);
+  const setVideoWallpaperMuted = useSettingsStore((s) => s.setVideoWallpaperMuted);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const [activeSubmenu, setActiveSubmenu] = useState<'view' | 'sort' | 'new' | null>(null);
@@ -70,7 +78,7 @@ export const DesktopContextMenu: React.FC<ContextMenuProps> = ({
   if (!isOpen) return null;
 
   const adjustedX = Math.min(x, window.innerWidth - 240);
-  const adjustedY = Math.min(y, window.innerHeight - 360);
+  const adjustedY = Math.min(y, window.innerHeight - 380);
 
   const handleAction = (action: () => void) => {
     soundEngine.playClick();
@@ -88,9 +96,43 @@ export const DesktopContextMenu: React.FC<ContextMenuProps> = ({
         exit={{ opacity: 0, scale: 0.95 }}
         transition={{ duration: 0.1 }}
         style={{ top: `${adjustedY}px`, left: `${adjustedX}px` }}
-        className="fixed z-[9990] w-56 p-1.5 rounded-xl bg-slate-900/95 backdrop-blur-3xl border border-white/15 shadow-2xl text-xs text-slate-200 select-none font-sans"
+        className="fixed z-[9990] w-60 p-1.5 rounded-xl bg-slate-900/95 backdrop-blur-3xl border border-white/15 shadow-2xl text-xs text-slate-200 select-none font-sans"
       >
         <div className="space-y-0.5">
+          {/* Quick AI Video Wallpaper Controls */}
+          {wallpaperId === 'vinay-video-wallpaper' && (
+            <>
+              <button
+                onMouseEnter={() => setActiveSubmenu(null)}
+                onClick={() => handleAction(replayVideoWallpaper)}
+                className="w-full flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 transition-colors text-left font-mono font-bold"
+              >
+                <Film className="w-4 h-4 text-cyan-400" />
+                <span>Replay AI Intro Video</span>
+              </button>
+
+              <button
+                onMouseEnter={() => setActiveSubmenu(null)}
+                onClick={() => handleAction(() => setVideoWallpaperMuted(!videoWallpaperMuted))}
+                className="w-full flex items-center gap-2.5 px-3 py-1.5 rounded-lg hover:bg-white/10 transition-colors text-left text-slate-300"
+              >
+                {videoWallpaperMuted ? (
+                  <>
+                    <VolumeX className="w-4 h-4 text-rose-400" />
+                    <span>Unmute Vinay Intro Audio</span>
+                  </>
+                ) : (
+                  <>
+                    <Volume2 className="w-4 h-4 text-cyan-400" />
+                    <span>Mute Intro Audio</span>
+                  </>
+                )}
+              </button>
+
+              <div className="my-1 h-[1px] bg-white/10" />
+            </>
+          )}
+
           {/* View Submenu Option */}
           <div onMouseEnter={() => setActiveSubmenu('view')} className="relative">
             <button className="w-full flex items-center justify-between px-3 py-1.5 rounded-lg hover:bg-white/10 transition-colors text-left group">

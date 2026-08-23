@@ -24,6 +24,9 @@ export const BrowserApp: React.FC<BrowserAppProps> = ({ initialUrl = 'https://gi
   const bookmarks = [
     { title: 'SocialBuddy AI Repo', url: 'https://github.com/Vinaygangurde2101/socialbuddy' },
     { title: 'MERS Healthcare Repo', url: 'https://github.com/Vinaygangurde2101/medical-emergency-response-system' },
+    { title: 'WebOn AR Repo', url: 'https://github.com/Vinaygangurde2101/webon-ar-shopping' },
+    { title: 'AgriConnect Repo', url: 'https://github.com/Vinaygangurde2101/agriconnect' },
+    { title: 'AVINYA.OS Portfolio Repo', url: 'https://github.com/Vinaygangurde2101/AVINYA.OS_Portfolio' },
     { title: 'Vinay GitHub Profile', url: 'https://github.com/Vinaygangurde2101' },
     { title: 'Vinay LinkedIn Profile', url: 'https://www.linkedin.com/in/vinay-gangurde-b3229027b' }
   ];
@@ -195,7 +198,7 @@ export const BrowserApp: React.FC<BrowserAppProps> = ({ initialUrl = 'https://gi
       </div>
 
       {/* Bookmarks Bar */}
-      <div className="flex items-center gap-2 px-1 text-[11px] font-mono overflow-x-auto">
+      <div className="flex items-center gap-2 px-1 text-[11px] font-mono overflow-x-auto pb-1">
         <span className="text-slate-500 font-bold shrink-0">Bookmarks:</span>
         {bookmarks.map((bm, i) => (
           <button
@@ -213,11 +216,11 @@ export const BrowserApp: React.FC<BrowserAppProps> = ({ initialUrl = 'https://gi
       </div>
 
       {/* Web Content Area */}
-      <div className="flex-1 rounded-xl overflow-hidden border border-white/10 bg-slate-950 relative flex items-center justify-center">
+      <div className="flex-1 rounded-xl overflow-hidden border border-white/10 bg-slate-950 relative flex items-center justify-center overflow-y-auto">
         {restricted ? (
           /* Framing Restriction Informational Fallback Card */
-          <div className="p-8 max-w-md mx-auto text-center space-y-4">
-            <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center mx-auto shadow-lg">
+          <div className="p-6 max-w-2xl mx-auto text-center space-y-5 my-auto">
+            <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center mx-auto shadow-lg">
               {activeTab.url.includes('github') ? (
                 <Github className="w-7 h-7 text-slate-100" />
               ) : activeTab.url.includes('linkedin') ? (
@@ -230,35 +233,62 @@ export const BrowserApp: React.FC<BrowserAppProps> = ({ initialUrl = 'https://gi
             <div className="space-y-1.5">
               <h3 className="text-base font-bold text-slate-100 font-sans">
                 {activeTab.url.includes('github')
-                  ? 'GitHub Security Restriction'
+                  ? 'GitHub Security Restriction & Project Repositories'
                   : activeTab.url.includes('linkedin')
                   ? 'LinkedIn Security Restriction'
                   : 'Web Framing Restricted'}
               </h3>
-              <p className="text-xs text-slate-400 font-sans leading-relaxed">
-                Platforms like <span className="text-slate-200 font-semibold">GitHub</span> and{' '}
-                <span className="text-slate-200 font-semibold">LinkedIn</span> enforce strict HTTP security headers (
-                <code className="text-cyan-400 bg-slate-900 px-1 py-0.5 rounded">X-Frame-Options: SAMEORIGIN</code>) to prevent clickjacking inside web app frames.
+              <p className="text-xs text-slate-400 font-sans leading-relaxed max-w-lg mx-auto">
+                GitHub & LinkedIn enforce strict HTTP security headers (
+                <code className="text-cyan-400 bg-slate-900 px-1 py-0.5 rounded">X-Frame-Options: SAMEORIGIN</code>).
+                You can open any of Vinay's project repositories directly on GitHub below:
               </p>
             </div>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            {/* Direct Open Button */}
+            <div className="flex items-center justify-center gap-3">
               <a
                 href={activeTab.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs transition-all shadow-[0_0_15px_rgba(0,240,255,0.3)] flex items-center justify-center gap-2"
+                className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs transition-all shadow-[0_0_15px_rgba(0,240,255,0.3)] flex items-center justify-center gap-2"
               >
-                <span>Open {activeTab.title}</span>
+                <span>Open {activeTab.title} on GitHub</span>
                 <ArrowUpRight className="w-4 h-4" />
               </a>
+            </div>
 
-              <button
-                onClick={() => updateTabUrl(activeTab.id, 'https://github.com/Vinaygangurde2101/socialbuddy')}
-                className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-white/10 text-xs transition-colors"
-              >
-                Try Project Demo URL
-              </button>
+            {/* All GitHub Project Links Grid */}
+            <div className="pt-3 border-t border-white/10 text-left">
+              <h4 className="text-xs font-mono font-bold uppercase text-cyan-400 mb-3 text-center">
+                📁 Direct GitHub Project Repositories
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+                {[
+                  { title: 'SocialBuddy AI Repo', url: 'https://github.com/Vinaygangurde2101/socialbuddy', tech: 'MERN + Hugging Face' },
+                  { title: 'MERS Healthcare Repo', url: 'https://github.com/Vinaygangurde2101/medical-emergency-response-system', tech: 'Spring Boot + Docker' },
+                  { title: 'WebOn AR Shopping Repo', url: 'https://github.com/Vinaygangurde2101/webon-ar-shopping', tech: 'MediaPipe + WebGL' },
+                  { title: 'AgriConnect Repo', url: 'https://github.com/Vinaygangurde2101/agriconnect', tech: 'Java Spring Boot' },
+                  { title: 'AVINYA.OS Portfolio Repo', url: 'https://github.com/Vinaygangurde2101/AVINYA.OS_Portfolio', tech: 'React + TypeScript' }
+                ].map((item, idx) => (
+                  <a
+                    key={idx}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-xl bg-slate-900/90 border border-white/10 hover:border-cyan-400/50 hover:bg-slate-900 transition-all flex items-center justify-between group"
+                  >
+                    <div>
+                      <div className="text-slate-100 font-bold group-hover:text-cyan-300 transition-colors flex items-center gap-1.5">
+                        <Github className="w-3.5 h-3.5 text-cyan-400" />
+                        <span>{item.title}</span>
+                      </div>
+                      <div className="text-[10px] text-slate-400 font-sans mt-0.5">{item.tech}</div>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 transition-colors" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         ) : (

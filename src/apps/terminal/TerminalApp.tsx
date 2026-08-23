@@ -97,6 +97,7 @@ const COMMAND_LIST = [
   'about',
   'skills',
   'projects',
+  'github',
   'experience',
   'contact',
   'resume',
@@ -529,13 +530,43 @@ export const TerminalApp: React.FC = () => {
     } else if (cmd === 'projects') {
       openWindow('projects');
       responseNode = (
-        <div className="font-mono text-xs space-y-1">
-          <div className="text-cyan-400 font-bold">PORTFOLIO PROJECTS:</div>
+        <div className="font-mono text-xs space-y-2">
+          <div className="text-cyan-400 font-bold">PORTFOLIO PROJECTS & GITHUB REPOSITORIES:</div>
           {projectsData.map((p, i) => (
-            <div key={i} className="text-slate-300">
-              • <span className="text-cyan-300 font-bold">{p.title}</span> ({p.category}) — {p.shortDescription}
+            <div key={i} className="p-2 rounded bg-slate-900/60 border border-slate-800 text-slate-300">
+              <div className="flex items-center justify-between">
+                <span className="text-cyan-300 font-bold">• {p.title}</span>
+                <span className="text-violet-400 text-[10px]">{p.category}</span>
+              </div>
+              <div className="text-slate-400 text-[11px] mt-0.5">{p.shortDescription}</div>
+              {p.githubUrl && (
+                <div className="text-[11px] text-sky-400 font-mono mt-1">
+                  Repo: <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-cyan-300">{p.githubUrl}</a>
+                </div>
+              )}
             </div>
           ))}
+        </div>
+      );
+    } else if (cmd === 'github' || cmd === 'repos') {
+      responseNode = (
+        <div className="font-mono text-xs space-y-2">
+          <div className="text-cyan-400 font-bold">GITHUB PROFILE & PROJECT REPOSITORIES:</div>
+          <div className="text-slate-200">
+            Profile: <a href={profileData.socials.github} target="_blank" rel="noopener noreferrer" className="text-cyan-300 underline">{profileData.socials.github}</a>
+          </div>
+          <div className="space-y-1.5 pt-1">
+            {projectsData.map((p, i) => (
+              <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-2 rounded bg-slate-900/60 border border-slate-800">
+                <span className="text-slate-200 font-bold">{p.title}</span>
+                {p.githubUrl && (
+                  <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-200 underline text-[11px]">
+                    {p.githubUrl}
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       );
     } else if (cmd === 'experience') {

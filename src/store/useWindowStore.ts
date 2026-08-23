@@ -17,7 +17,7 @@ const DEFAULT_APPS: Record<AppId, AppDefaults> = {
   experience: { title: 'Experience Timeline', icon: 'Briefcase', defaultWidth: 840, defaultHeight: 640 },
   achievements: { title: 'Achievements & Badges', icon: 'Trophy', defaultWidth: 820, defaultHeight: 580 },
   resume: { title: 'Resume Document', icon: 'FileText', defaultWidth: 850, defaultHeight: 690 },
-  contact: { title: 'Contact Direct', icon: 'Mail', defaultWidth: 720, defaultHeight: 580 },
+  contact: { title: 'Contact Direct', icon: 'Mail', defaultWidth: 880, defaultHeight: 660 },
   terminal: { title: 'Terminal Shell', icon: 'Terminal', defaultWidth: 780, defaultHeight: 520 },
   browser: { title: 'Browser Sandbox', icon: 'Globe', defaultWidth: 960, defaultHeight: 660 },
   settings: { title: 'System Settings', icon: 'Sliders', defaultWidth: 700, defaultHeight: 540 },

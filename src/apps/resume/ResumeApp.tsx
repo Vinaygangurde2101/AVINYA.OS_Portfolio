@@ -49,9 +49,10 @@ export const ResumeApp: React.FC = () => {
 
           <a
             href={profileData.socials.resumeUrl}
-            download
-            onClick={() => window.print()}
-            className="px-3.5 py-1.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold shadow-[0_0_12px_rgba(56,189,248,0.3)] flex items-center gap-1.5 transition-all"
+            download="Vinay_Gangurde_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3.5 py-1.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold shadow-[0_0_12px_rgba(56,189,248,0.3)] flex items-center gap-1.5 transition-all cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Download PDF</span>
@@ -87,11 +88,11 @@ export const ResumeApp: React.FC = () => {
               Shirpur, Maharashtra, India
             </span>
             <span className="text-slate-500">|</span>
-            <a href={profileData.socials.github} target="_blank" rel="noreferrer" className="text-sky-400 hover:underline flex items-center gap-0.5">
+            <a href={profileData.socials.github} target="_blank" rel="noopener noreferrer" className="text-sky-400 hover:underline flex items-center gap-0.5">
               GitHub <ExternalLink className="w-2.5 h-2.5" />
             </a>
             <span className="text-slate-500">|</span>
-            <a href={profileData.socials.linkedin} target="_blank" rel="noreferrer" className="text-sky-400 hover:underline flex items-center gap-0.5">
+            <a href={profileData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-sky-400 hover:underline flex items-center gap-0.5">
               LinkedIn <ExternalLink className="w-2.5 h-2.5" />
             </a>
           </div>

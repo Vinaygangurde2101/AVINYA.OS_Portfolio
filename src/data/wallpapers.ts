@@ -1,14 +1,29 @@
 export interface WallpaperOption {
   id: string;
   name: string;
-  category: 'Windows 11' | 'Gradient' | 'Aurora' | 'Cyberpunk' | 'Monochrome';
+  category: 'AI Video' | 'Windows 11' | 'Gradient' | 'Aurora' | 'Cyberpunk' | 'Monochrome';
   previewColor: string;
   cssClass: string;
   hasParticles: boolean;
   accentColor: string;
+  isVideo?: boolean;
+  videoSrc?: string;
+  staticImage?: string;
 }
 
 export const wallpaperOptions: WallpaperOption[] = [
+  {
+    id: 'vinay-video-wallpaper',
+    name: "Vinay's AI Welcome (Video Wallpaper)",
+    category: 'AI Video',
+    previewColor: '#0a192f',
+    cssClass: 'bg-[#05070d]',
+    hasParticles: false,
+    accentColor: '#38bdf8',
+    isVideo: true,
+    videoSrc: '/videos/home_video.mp4',
+    staticImage: '/images/wp.png'
+  },
   {
     id: 'win11-bloom',
     name: 'Windows 11 Bloom (Dark)',

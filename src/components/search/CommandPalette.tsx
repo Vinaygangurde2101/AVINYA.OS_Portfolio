@@ -53,7 +53,7 @@ export const CommandPalette: React.FC = () => {
       { id: 'app-architecture', title: 'System Architecture Graph', category: 'App', icon: FolderGit2, subtitle: 'Microservices & AI topology node graph', action: () => openWindow('architecture') },
     ];
 
-    // Add Projects
+    // Add Projects & GitHub Repo Links
     projectsData.forEach((proj) => {
       items.push({
         id: `proj-${proj.id}`,
@@ -63,6 +63,17 @@ export const CommandPalette: React.FC = () => {
         subtitle: `${proj.category} • ${proj.technologies.join(', ')}`,
         action: () => openWindow('project-details', { projectId: proj.id }, `${proj.title} Case Study`)
       });
+
+      if (proj.githubUrl) {
+        items.push({
+          id: `github-repo-${proj.id}`,
+          title: `GitHub Repo: ${proj.title}`,
+          category: 'Social',
+          icon: ExternalLink,
+          subtitle: proj.githubUrl,
+          action: () => window.open(proj.githubUrl, '_blank')
+        });
+      }
     });
 
     // Add Key Skills
@@ -84,7 +95,7 @@ export const CommandPalette: React.FC = () => {
     // Add External Socials
     items.push({
       id: 'social-github',
-      title: 'GitHub Profile',
+      title: 'Vinay GitHub Profile (Vinaygangurde2101)',
       category: 'Social',
       icon: ExternalLink,
       subtitle: profileData.socials.github,

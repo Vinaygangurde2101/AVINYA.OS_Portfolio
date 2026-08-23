@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSettingsStore } from '../../store/useSettingsStore';
 import { wallpaperOptions } from '../../data/wallpapers';
-import { Sliders, Volume2, VolumeX, Moon, Sparkles, Command, RotateCcw, ShieldCheck } from 'lucide-react';
+import { Sliders, Volume2, VolumeX, Moon, Sparkles, Command, RotateCcw, Play, Film } from 'lucide-react';
 
 export const SettingsApp: React.FC = () => {
   const wallpaperId = useSettingsStore((s) => s.wallpaperId);
@@ -14,6 +14,11 @@ export const SettingsApp: React.FC = () => {
   const setReducedMotion = useSettingsStore((s) => s.setReducedMotion);
   const clock24h = useSettingsStore((s) => s.clock24h);
   const setClock24h = useSettingsStore((s) => s.setClock24h);
+  const videoWallpaperMuted = useSettingsStore((s) => s.videoWallpaperMuted);
+  const setVideoWallpaperMuted = useSettingsStore((s) => s.setVideoWallpaperMuted);
+  const replayVideoWallpaper = useSettingsStore((s) => s.replayVideoWallpaper);
+  const videoFreezeLastFrame = useSettingsStore((s) => s.videoFreezeLastFrame);
+  const setVideoFreezeLastFrame = useSettingsStore((s) => s.setVideoFreezeLastFrame);
 
   const handleResetLayout = () => {
     localStorage.clear();
@@ -23,11 +28,23 @@ export const SettingsApp: React.FC = () => {
   return (
     <div className="space-y-6 max-w-3xl mx-auto pb-6 select-none font-sans text-xs">
       {/* Wallpaper Selection Section */}
-      <div className="p-5 rounded-2xl bg-slate-900/80 border border-white/10 space-y-3">
-        <h3 className="text-sm font-bold text-white flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-cyan-400" />
-          Desktop Wallpaper & Mesh Gradient
-        </h3>
+      <div className="p-5 rounded-2xl bg-slate-900/80 border border-white/10 space-y-4">
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-bold text-white flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-cyan-400" />
+            Desktop Wallpaper & AI Video Intro
+          </h3>
+          {wallpaperId === 'vinay-video-wallpaper' && (
+            <button
+              onClick={replayVideoWallpaper}
+              className="px-3 py-1 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-400/40 text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-[0_0_10px_rgba(6,182,212,0.2)]"
+            >
+              <Film className="w-3.5 h-3.5" />
+              <span>Replay AI Intro</span>
+            </button>
+          )}
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {wallpaperOptions.map((wp) => (
             <button
@@ -41,20 +58,69 @@ export const SettingsApp: React.FC = () => {
             >
               <div className="flex items-center gap-2.5">
                 <span
-                  className="w-4 h-4 rounded-full border border-white/30"
+                  className="w-4 h-4 rounded-full border border-white/30 flex items-center justify-center text-[10px]"
                   style={{ backgroundColor: wp.accentColor }}
-                />
+                >
+                  {wp.isVideo ? '🎬' : ''}
+                </span>
                 <div>
-                  <div className="font-bold text-xs">{wp.name}</div>
+                  <div className="font-bold text-xs flex items-center gap-1.5">
+                    {wp.name}
+                    {wp.isVideo && (
+                      <span className="px-1.5 py-0.5 text-[9px] font-mono rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                        AI VIDEO
+                      </span>
+                    )}
+                  </div>
                   <div className="text-[10px] text-slate-400 font-mono">{wp.category}</div>
                 </div>
               </div>
               {wallpaperId === wp.id && (
-                <span className="text-[10px] font-mono text-cyan-400">Active</span>
+                <span className="text-[10px] font-mono text-cyan-400 font-bold">Active</span>
               )}
             </button>
           ))}
         </div>
+
+        {/* Video Wallpaper Specific Controls */}
+        {wallpaperId === 'vinay-video-wallpaper' && (
+          <div className="p-3.5 rounded-xl bg-slate-950/80 border border-cyan-500/20 space-y-3 font-mono">
+            <div className="text-xs font-bold text-cyan-300 flex items-center gap-1.5">
+              <Film className="w-3.5 h-3.5" />
+              <span>AI Video Wallpaper Preferences</span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px]">
+              <div className="flex items-center justify-between p-2.5 rounded-lg bg-slate-900 border border-white/5">
+                <span className="text-slate-300">Vinay Voice Intro</span>
+                <button
+                  onClick={() => setVideoWallpaperMuted(!videoWallpaperMuted)}
+                  className={`px-2.5 py-1 rounded-md text-[10px] font-bold transition-all ${
+                    !videoWallpaperMuted
+                      ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
+                      : 'bg-slate-800 text-slate-400 border border-white/10'
+                  }`}
+                >
+                  {!videoWallpaperMuted ? 'Voice ON 🔊' : 'Muted 🔇'}
+                </button>
+              </div>
+
+              <div className="flex items-center justify-between p-2.5 rounded-lg bg-slate-900 border border-white/5">
+                <span className="text-slate-300">Freeze Last Frame</span>
+                <button
+                  onClick={() => setVideoFreezeLastFrame(!videoFreezeLastFrame)}
+                  className={`px-2.5 py-1 rounded-md text-[10px] font-bold transition-all ${
+                    videoFreezeLastFrame
+                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                      : 'bg-slate-800 text-slate-400 border border-white/10'
+                  }`}
+                >
+                  {videoFreezeLastFrame ? 'Static Last Slide 🖼️' : 'Looping Video 🔁'}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Audio & Motion Preferences */}

@@ -21,7 +21,6 @@ export const projectsData: ProjectItem[] = [
     role: ['Full-Stack Developer', 'AI Integration Lead'],
     outcome: 'Delivered an automated AI-moderated social platform with full MERN stack architecture and RBAC admin controls.',
     githubUrl: 'https://github.com/Vinaygangurde2101/socialbuddy',
-    liveUrl: 'https://github.com/Vinaygangurde2101',
     featured: true,
     metrics: [
       { label: 'AI Moderation', value: 'Hugging Face & Perspective' },
@@ -48,7 +47,6 @@ export const projectsData: ProjectItem[] = [
     role: ['Full-Stack Java Engineer', 'AI/ML Module Developer', 'System Architect'],
     outcome: 'Delivered an end-to-end automated healthcare triage and emergency dispatch portal containerized with Docker.',
     githubUrl: 'https://github.com/Vinaygangurde2101/medical-emergency-response-system',
-    liveUrl: 'https://github.com/Vinaygangurde2101',
     featured: true,
     metrics: [
       { label: 'System Roles', value: '4 (Admin/Doctor/Patient/Ambulance)' },
@@ -75,7 +73,6 @@ export const projectsData: ProjectItem[] = [
     role: ['AI / WebGL Developer', 'Full-Stack Engineer'],
     outcome: 'Rendered 3D virtual try-ons with 33 body landmarks driving WebGL vertex shaders in live WebRTC video streams.',
     githubUrl: 'https://github.com/Vinaygangurde2101/webon-ar-shopping',
-    liveUrl: 'https://github.com/Vinaygangurde2101',
     featured: true,
     metrics: [
       { label: 'Body Landmarks', value: '33 Key Points' },
@@ -102,12 +99,37 @@ export const projectsData: ProjectItem[] = [
     role: ['Backend & Full-Stack Java Developer'],
     outcome: 'Centralized agricultural equipment rental and service management with 15+ secure REST APIs.',
     githubUrl: 'https://github.com/Vinaygangurde2101/agriconnect',
-    liveUrl: 'https://github.com/Vinaygangurde2101',
     featured: true,
     metrics: [
       { label: 'REST APIs', value: '15+ Endpoints' },
       { label: 'Roles Supported', value: 'Farmers, Providers, Admins' },
       { label: 'Security', value: 'Spring Security RBAC' }
+    ]
+  },
+  {
+    id: 'avinya-os-portfolio',
+    title: 'AVINYA.OS — Cyberpunk Desktop Web Operating System',
+    slug: 'avinya-os-portfolio',
+    category: 'Creative Tech',
+    year: '2025',
+    shortDescription: 'Cyberpunk desktop operating system portfolio built with React 18, TypeScript, Tailwind CSS, Zustand window manager, AI chatbot, and interactive CLI shell.',
+    description: 'Designed and built AVINYA.OS — an immersive interactive web desktop portfolio mimicking a high-tech Cyberpunk operating system. Features multi-window management (Zustand), interactive terminal CLI with AI query capabilities, grounded portfolio assistant (Gemini & local KB), virtual browser app, ATS resume viewer, arcade mini-games, system metrics node graph, and full responsive design.',
+    problem: 'Standard static developer portfolios fail to engage recruiters and showcase complex full-stack frontend architecture.',
+    approach: 'Engineered a modular window state manager using Zustand, custom CSS glassmorphism UI system, interactive CLI parser with command history and auto-complete, and integrated generative AI capabilities.',
+    solution: 'Delivered an interactive operating system web app that increases recruiter dwell time and wows visitors with interactive project explorations.',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80'
+    ],
+    technologies: ['React 18', 'TypeScript', 'Tailwind CSS', 'Zustand', 'Framer Motion', 'Vite', 'Lucide Icons', 'Generative AI'],
+    role: ['Creator', 'UI/UX Designer', 'Lead Frontend Engineer'],
+    outcome: 'Architected a desktop web application with window management, AI integration, and interactive terminal CLI.',
+    githubUrl: 'https://github.com/Vinaygangurde2101/AVINYA.OS_Portfolio',
+    featured: true,
+    metrics: [
+      { label: 'Architecture', value: 'React + Zustand + Vite' },
+      { label: 'UI Theme', value: 'Cyberpunk Glassmorphism' },
+      { label: 'Interactivity', value: 'Multi-Window & CLI Shell' }
     ]
   }
 ];

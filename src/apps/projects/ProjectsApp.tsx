@@ -158,9 +158,20 @@ export const ProjectsApp: React.FC = () => {
               {/* Action bar */}
               <div className="px-5 py-3 border-t border-white/5 bg-slate-950/50 flex items-center justify-between text-xs font-mono">
                 <span className="text-cyan-400 group-hover:underline">Read Case Study →</span>
-                <div className="flex items-center gap-3 text-slate-400">
-                  {project.githubUrl && <Github className="w-4 h-4 hover:text-white" />}
-                  {project.liveUrl && <ExternalLink className="w-4 h-4 hover:text-white" />}
+                <div className="flex items-center gap-2 text-slate-400">
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 border border-white/10 hover:border-cyan-400/50 transition-colors flex items-center gap-1.5"
+                      title="View GitHub Repository"
+                    >
+                      <Github className="w-3.5 h-3.5 text-cyan-400" />
+                      <span className="text-[11px]">GitHub Repo</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -192,8 +203,21 @@ export const ProjectsApp: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 font-mono text-xs text-cyan-400">
-                <span>View Study →</span>
+              <div className="flex items-center gap-3 font-mono text-xs">
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="p-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 text-slate-300 border border-white/10 hover:border-cyan-400 flex items-center gap-1.5 transition-all text-xs"
+                    title="View GitHub Repository"
+                  >
+                    <Github className="w-3.5 h-3.5 text-cyan-400" />
+                    <span className="hidden sm:inline">GitHub Repo</span>
+                  </a>
+                )}
+                <span className="text-cyan-400 group-hover:underline">View Study →</span>
               </div>
             </div>
           ))}

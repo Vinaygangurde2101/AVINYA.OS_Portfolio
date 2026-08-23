@@ -23,7 +23,7 @@ export const profileData: ProfileData = {
     github: 'https://github.com/Vinaygangurde2101',
     linkedin: 'https://www.linkedin.com/in/vinay-gangurde-b3229027b',
     email: 'vinaygangurde2101@gmail.com',
-    resumeUrl: '/resume.pdf'
+    resumeUrl: '/pdf/Vinay_Gangurde_Resume.pdf'
   },
   stats: [
     { label: 'GPA Grade', value: '8.46 / 10' },

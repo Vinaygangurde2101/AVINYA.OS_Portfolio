@@ -133,6 +133,49 @@ export const AboutApp: React.FC = () => {
           <p className="text-xs text-slate-300">{profileData.currently.exploring}</p>
         </div>
       </div>
+
+      {/* Featured GitHub Repositories Section */}
+      <div className="p-6 rounded-2xl bg-slate-900/80 border border-white/10 space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-sm font-mono uppercase tracking-wider text-cyan-400 font-semibold flex items-center gap-2">
+            <Globe className="w-4 h-4" />
+            FEATURED GITHUB PROJECT REPOSITORIES
+          </h2>
+          <a
+            href={profileData.socials.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1"
+          >
+            <span>View Profile</span>
+            <Rocket className="w-3 h-3" />
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+          {[
+            { title: 'SocialBuddy AI', url: 'https://github.com/Vinaygangurde2101/socialbuddy', desc: 'MERN + Hugging Face & Perspective API AI moderation' },
+            { title: 'MERS Healthcare', url: 'https://github.com/Vinaygangurde2101/medical-emergency-response-system', desc: 'Spring Boot RBAC + OCR/NLP diagnostic report triage' },
+            { title: 'WebOn AR Shopping', url: 'https://github.com/Vinaygangurde2101/webon-ar-shopping', desc: 'MediaPipe 33 pose landmarks + WebGL 3D shaders' },
+            { title: 'AgriConnect System', url: 'https://github.com/Vinaygangurde2101/agriconnect', desc: 'Spring Boot agricultural portal + 15+ REST APIs' },
+            { title: 'AVINYA.OS Portfolio', url: 'https://github.com/Vinaygangurde2101/AVINYA.OS_Portfolio', desc: 'Cyberpunk Desktop Web Operating System Portfolio' }
+          ].map((repo, idx) => (
+            <a
+              key={idx}
+              href={repo.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-xl bg-slate-950/70 border border-white/10 hover:border-cyan-400/50 hover:bg-slate-950 transition-all flex flex-col justify-between space-y-1 group"
+            >
+              <div className="font-bold text-slate-100 group-hover:text-cyan-300 transition-colors flex items-center justify-between">
+                <span>{repo.title}</span>
+                <span className="text-[10px] text-cyan-400 underline opacity-0 group-hover:opacity-100 transition-opacity">View Repo →</span>
+              </div>
+              <div className="text-[11px] text-slate-400 font-sans">{repo.desc}</div>
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

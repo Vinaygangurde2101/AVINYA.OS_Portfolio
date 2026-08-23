@@ -13,12 +13,6 @@ export const ProjectDetailsWindow: React.FC<ProjectDetailsWindowProps> = ({ proj
 
   const project = projectsData.find((p) => p.id === projectId) || projectsData[0];
 
-  const handleLaunchBrowser = () => {
-    if (project.liveUrl) {
-      openWindow('browser', { url: project.liveUrl }, `Browser — ${project.title}`);
-    }
-  };
-
   return (
     <div className="space-y-6 max-w-4xl mx-auto pb-6 select-none">
       {/* Header Info */}
@@ -41,25 +35,15 @@ export const ProjectDetailsWindow: React.FC<ProjectDetailsWindowProps> = ({ proj
 
         {/* Action Buttons */}
         <div className="pt-2 flex flex-wrap gap-3 font-mono text-xs">
-          {project.liveUrl && (
-            <button
-              onClick={handleLaunchBrowser}
-              className="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition-all shadow-[0_0_15px_rgba(0,240,255,0.3)] flex items-center gap-2"
-            >
-              <ExternalLink className="w-4 h-4" />
-              <span>Launch Live Demo</span>
-            </button>
-          )}
-
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-white/15 transition-all flex items-center gap-2"
+              className="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition-all shadow-[0_0_15px_rgba(0,240,255,0.3)] flex items-center gap-2"
             >
               <Github className="w-4 h-4" />
-              <span>View Source Code</span>
+              <span>View Source Code on GitHub</span>
             </a>
           )}
         </div>
