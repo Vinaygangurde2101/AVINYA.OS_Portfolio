@@ -29,18 +29,18 @@ const DEFAULT_POSITIONS: Record<string, { x: number; y: number }> = {
   'ai-assistant': { x: 24, y: 130 },
   projects: { x: 24, y: 236 },
   skills: { x: 24, y: 342 },
-  experience: { x: 24, y: 448 },
-  achievements: { x: 24, y: 554 },
-  resume: { x: 140, y: 24 },
-  contact: { x: 140, y: 130 },
-  terminal: { x: 140, y: 236 },
-  browser: { x: 140, y: 342 },
-  arcade: { x: 140, y: 448 },
-  architecture: { x: 256, y: 24 },
-  settings: { x: 140, y: 554 }
+  experience: { x: 140, y: 24 },
+  achievements: { x: 140, y: 130 },
+  resume: { x: 140, y: 236 },
+  contact: { x: 140, y: 342 },
+  terminal: { x: 256, y: 24 },
+  browser: { x: 256, y: 130 },
+  arcade: { x: 256, y: 236 },
+  architecture: { x: 256, y: 342 },
+  settings: { x: 372, y: 24 }
 };
 
-const POSITIONS_STORAGE_KEY = 'avinya_os_desktop_icon_positions';
+const POSITIONS_STORAGE_KEY = 'avinya_os_desktop_icon_positions_v2';
 
 export const DesktopGrid: React.FC = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -57,7 +57,17 @@ export const DesktopGrid: React.FC = () => {
   const [iconPositions, setIconPositions] = useState<Record<string, { x: number; y: number }>>(() => {
     try {
       const saved = localStorage.getItem(POSITIONS_STORAGE_KEY);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        const sanitized: Record<string, { x: number; y: number }> = {};
+        Object.keys(parsed).forEach((key) => {
+          sanitized[key] = {
+            x: Math.max(10, Math.min(parsed[key].x, window.innerWidth - 110)),
+            y: Math.max(10, Math.min(parsed[key].y, 450))
+          };
+        });
+        return sanitized;
+      }
     } catch (e) {
       console.warn('Failed to parse saved icon positions', e);
     }
@@ -113,9 +123,9 @@ export const DesktopGrid: React.FC = () => {
 
   const rearrangeSortedList = (sortedList: DesktopIconItem[]) => {
     const newPos: Record<string, { x: number; y: number }> = {};
-    const itemsPerCol = 6;
+    const itemsPerCol = 4;
     const colWidth = iconSize === 'large' ? 150 : iconSize === 'small' ? 110 : 130;
-    const rowHeight = iconSize === 'large' ? 120 : iconSize === 'small' ? 95 : 105;
+    const rowHeight = iconSize === 'large' ? 115 : iconSize === 'small' ? 95 : 105;
 
     sortedList.forEach((item, idx) => {
       const col = Math.floor(idx / itemsPerCol);
@@ -227,7 +237,7 @@ export const DesktopGrid: React.FC = () => {
             onDragEnd={(event, info) => {
               const bounds = containerRef.current?.getBoundingClientRect();
               const maxX = bounds ? bounds.width - 110 : window.innerWidth - 110;
-              const maxY = bounds ? bounds.height - 120 : window.innerHeight - 160;
+              const maxY = bounds ? Math.min(bounds.height - 135, 450) : 450;
 
               const newX = Math.max(10, Math.min(maxX, pos.x + info.offset.x));
               const newY = Math.max(10, Math.min(maxY, pos.y + info.offset.y));
