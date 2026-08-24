@@ -50,33 +50,39 @@ export const SettingsApp: React.FC = () => {
             <button
               key={wp.id}
               onClick={() => setWallpaperId(wp.id)}
-              className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
+              className={`p-3.5 rounded-xl border text-left transition-all flex items-center justify-between group cursor-pointer ${
                 wallpaperId === wp.id
-                  ? 'bg-cyan-500/15 border-cyan-400 text-white shadow-[0_0_15px_rgba(0,240,255,0.2)]'
-                  : 'bg-slate-950/60 border-white/10 hover:border-white/20 text-slate-300'
+                  ? 'bg-cyan-500/20 border-cyan-400 text-white shadow-[0_0_15px_rgba(0,240,255,0.25)] ring-1 ring-cyan-400/50'
+                  : 'bg-slate-950/70 border-white/10 hover:border-white/20 text-slate-300 hover:bg-slate-950'
               }`}
             >
-              <div className="flex items-center gap-2.5">
-                <span
-                  className="w-4 h-4 rounded-full border border-white/30 flex items-center justify-center text-[10px]"
-                  style={{ backgroundColor: wp.accentColor }}
+              <div className="flex items-center gap-3">
+                <div
+                  className={`w-7 h-7 rounded-lg border border-white/20 flex items-center justify-center text-xs shrink-0 shadow-inner ${wp.cssClass}`}
+                  style={{ backgroundColor: wp.previewColor }}
                 >
-                  {wp.isVideo ? '🎬' : ''}
-                </span>
+                  {wp.isVideo ? '🎬' : '🎨'}
+                </div>
                 <div>
-                  <div className="font-bold text-xs flex items-center gap-1.5">
+                  <div className="font-bold text-xs flex items-center gap-1.5 flex-wrap">
                     {wp.name}
                     {wp.isVideo && (
-                      <span className="px-1.5 py-0.5 text-[9px] font-mono rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                      <span className="px-1.5 py-0.5 text-[9px] font-mono rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-bold">
                         AI VIDEO
                       </span>
                     )}
                   </div>
-                  <div className="text-[10px] text-slate-400 font-mono">{wp.category}</div>
+                  <div className="text-[10px] text-slate-400 font-mono mt-0.5">{wp.category}</div>
                 </div>
               </div>
-              {wallpaperId === wp.id && (
-                <span className="text-[10px] font-mono text-cyan-400 font-bold">Active</span>
+              {wallpaperId === wp.id ? (
+                <span className="px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-[10px] font-mono font-bold border border-cyan-400/40 shrink-0">
+                  Active ✓
+                </span>
+              ) : (
+                <span className="text-[10px] font-mono text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+                  Select →
+                </span>
               )}
             </button>
           ))}

@@ -219,42 +219,42 @@ export const Wallpaper: React.FC = () => {
             </>
           )}
 
-          {/* Stylish Right-Aligned Desktop Wallpaper Artwork */}
-          <div className="absolute inset-0 flex flex-col items-end justify-center pointer-events-none select-none z-1 pr-6 sm:pr-12 md:pr-16 lg:pr-24">
+          {/* Stylish Mobile & Desktop Responsive Wallpaper Artwork */}
+          <div className="absolute inset-0 flex flex-col items-center sm:items-end justify-center pointer-events-none select-none z-1 px-4 sm:pr-12 md:pr-16 lg:pr-24">
             <div
-              className="absolute right-0 top-0 bottom-0 w-[65%] pointer-events-none -z-20 opacity-80"
+              className="absolute right-0 sm:right-0 top-0 bottom-0 w-full sm:w-[65%] pointer-events-none -z-20 opacity-80"
               style={{
-                background: 'radial-gradient(ellipse at 85% 50%, rgba(3, 7, 18, 0.9) 0%, rgba(5, 7, 13, 0.5) 65%, transparent 100%)'
+                background: 'radial-gradient(ellipse at 50% 50%, rgba(3, 7, 18, 0.9) 0%, rgba(5, 7, 13, 0.5) 65%, transparent 100%)'
               }}
             />
 
-            <div className="relative flex flex-col items-end text-right p-6 sm:p-8 rounded-3xl bg-slate-950/40 border border-white/5 backdrop-blur-sm shadow-[0_0_50px_rgba(0,0,0,0.8)] max-w-2xl -translate-y-2">
-              <div className="absolute -right-6 w-[350px] sm:w-[500px] h-[160px] sm:h-[200px] bg-gradient-to-r from-cyan-500/20 via-sky-400/25 to-indigo-600/20 blur-[100px] rounded-full -z-10 animate-pulse-slow" />
+            <div className="relative flex flex-col items-center sm:items-end text-center sm:text-right p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-950/40 border border-white/5 backdrop-blur-sm shadow-[0_0_50px_rgba(0,0,0,0.8)] max-w-[92vw] sm:max-w-2xl -translate-y-2">
+              <div className="absolute -right-6 w-[280px] sm:w-[500px] h-[120px] sm:h-[200px] bg-gradient-to-r from-cyan-500/20 via-sky-400/25 to-indigo-600/20 blur-[100px] rounded-full -z-10 animate-pulse-slow" />
 
               <div className="flex items-center gap-2 mb-1.5 opacity-90">
-                <span className="h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent to-cyan-400" />
-                <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-cyan-300 font-extrabold drop-shadow-[0_0_10px_rgba(6,182,212,0.7)]">
+                <span className="hidden sm:inline-block h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent to-cyan-400" />
+                <span className="font-mono text-[8px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.35em] text-cyan-300 font-extrabold drop-shadow-[0_0_10px_rgba(6,182,212,0.7)]">
                   AVINYA.OS ◈ INTERACTIVE SYSTEM
                 </span>
               </div>
 
               <h2
-                className="text-2xl sm:text-4xl md:text-5xl font-black tracking-[0.18em] text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-sky-300 drop-shadow-[0_0_20px_rgba(56,189,248,0.4)] leading-tight uppercase font-sans mb-1"
+                className="text-xl sm:text-4xl md:text-5xl font-black tracking-[0.14em] sm:tracking-[0.18em] text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-sky-300 drop-shadow-[0_0_20px_rgba(56,189,248,0.4)] leading-tight uppercase font-sans mb-0.5 sm:mb-1"
                 style={{ fontFamily: "'Outfit', 'Space Grotesk', sans-serif" }}
               >
                 VINAY'S
               </h2>
 
               <h1
-                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-cyan-400/80 drop-shadow-[0_0_35px_rgba(6,182,212,0.5)] leading-none uppercase select-none"
+                className="text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-[0.15em] sm:tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-cyan-400/80 drop-shadow-[0_0_35px_rgba(6,182,212,0.5)] leading-none uppercase select-none"
                 style={{ fontFamily: "'Outfit', 'Space Grotesk', sans-serif" }}
               >
                 PORTFOLIO
               </h1>
 
-              <div className="mt-3.5 sm:mt-4 px-4 sm:px-5 py-1.5 rounded-full bg-black/60 border border-cyan-500/35 backdrop-blur-md shadow-[0_0_20px_rgba(0,0,0,0.6)] flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block shadow-[0_0_10px_#34d399]" />
-                <span className="text-[10px] sm:text-xs font-mono tracking-[0.22em] text-cyan-200 uppercase font-bold">
+              <div className="mt-2.5 sm:mt-4 px-3 sm:px-5 py-1.5 rounded-full bg-black/60 border border-cyan-500/35 backdrop-blur-md shadow-[0_0_20px_rgba(0,0,0,0.6)] flex items-center gap-1.5 sm:gap-2 max-w-full overflow-hidden">
+                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-ping shrink-0 shadow-[0_0_10px_#34d399]" />
+                <span className="text-[9px] sm:text-xs font-mono tracking-[0.12em] sm:tracking-[0.22em] text-cyan-200 uppercase font-bold truncate">
                   Full-Stack Developer &amp; AI/ML Engineer
                 </span>
               </div>
