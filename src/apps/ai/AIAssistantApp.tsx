@@ -501,7 +501,7 @@ export const AIAssistantApp: React.FC = () => {
             type="text"
             value={inputQuery}
             onChange={(e) => setInputQuery(e.target.value)}
-            placeholder={isListening ? 'Listening now... Speak your question!' : 'Ask me anything (e.g. why hire me, projects, skills, GPA)...'}
+            placeholder={isListening ? 'Listening now...' : 'Ask Vinay AI anything...'}
             disabled={isLoading}
             className="flex-1 bg-transparent px-2 py-1.5 text-xs text-slate-100 placeholder-slate-500 outline-none font-medium"
           />

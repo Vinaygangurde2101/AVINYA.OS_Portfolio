@@ -125,7 +125,7 @@ export const Window: React.FC<WindowProps> = ({ windowState, children }) => {
           transition={{ type: 'spring', damping: 28, stiffness: 380, mass: 0.8 }}
           style={windowStyle}
           onPointerDown={() => focusWindow(id)}
-          className={`flex flex-col rounded-2xl overflow-hidden glass-panel ${
+          className={`flex flex-col rounded-t-2xl sm:rounded-2xl overflow-hidden glass-panel ${
             isActive
               ? 'glass-panel-active ring-1 ring-cyan-400/50 shadow-[0_25px_60px_rgba(0,0,0,0.7)] opacity-100'
               : 'opacity-90 shadow-xl border border-white/10'
@@ -141,7 +141,7 @@ export const Window: React.FC<WindowProps> = ({ windowState, children }) => {
             onHeaderPointerDown={handlePointerDown}
           />
 
-          <div className="flex-1 overflow-auto p-4 sm:p-6 bg-slate-950/60 text-slate-100 font-sans">
+          <div className="flex-1 overflow-auto p-3 sm:p-6 bg-slate-950/60 text-slate-100 font-sans">
             {children}
           </div>
         </motion.div>

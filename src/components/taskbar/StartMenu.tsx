@@ -69,7 +69,7 @@ export const StartMenu: React.FC = () => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 15, scale: 0.96 }}
           transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-          className="fixed bottom-14 left-1/2 -translate-x-1/2 z-[9500] w-[90vw] max-w-[540px] rounded-2xl bg-slate-900/95 border border-white/15 p-6 shadow-2xl backdrop-blur-2xl text-slate-100 font-sans"
+          className="fixed bottom-14 left-1/2 -translate-x-1/2 z-[9500] w-[94vw] max-w-[540px] max-h-[85vh] overflow-y-auto no-scrollbar rounded-2xl bg-slate-900/95 border border-white/15 p-4 sm:p-6 shadow-2xl backdrop-blur-2xl text-slate-100 font-sans"
         >
           {/* Top Search Bar */}
           <button
@@ -81,9 +81,9 @@ export const StartMenu: React.FC = () => {
           >
             <span className="flex items-center gap-2.5">
               <Search className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" />
-              <span>Type here to search apps, settings, projects...</span>
+              <span className="truncate">Type here to search apps, projects...</span>
             </span>
-            <kbd className="px-2 py-0.5 bg-slate-800 text-slate-300 rounded-md text-[10px] border border-white/10 font-mono">
+            <kbd className="hidden sm:inline-block px-2 py-0.5 bg-slate-800 text-slate-300 rounded-md text-[10px] border border-white/10 font-mono">
               ⌘K
             </kbd>
           </button>
@@ -105,7 +105,7 @@ export const StartMenu: React.FC = () => {
             </div>
 
             {/* Grid of Pinned Apps */}
-            <div className="grid grid-cols-5 gap-2">
+            <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
               {MENU_APPS.map((app) => (
                 <motion.button
                   key={app.id}

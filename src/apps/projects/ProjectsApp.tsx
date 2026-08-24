@@ -75,7 +75,7 @@ export const ProjectsApp: React.FC = () => {
       </div>
 
       {/* Category Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs font-mono">
+      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-xs font-mono">
         {categories.map((cat) => (
           <button
             key={cat}

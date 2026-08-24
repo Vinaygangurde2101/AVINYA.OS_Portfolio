@@ -376,37 +376,37 @@ export const ArcadeApp: React.FC = () => {
   return (
     <div className="w-full h-full flex flex-col bg-[#070b16] text-slate-100 font-sans select-none overflow-hidden relative">
       {/* Arcade Top Control Header */}
-      <div className="px-4 py-3 bg-slate-900/90 border-b border-purple-500/30 flex items-center justify-between gap-3 backdrop-blur-md z-10">
+      <div className="px-3 sm:px-4 py-2.5 sm:py-3 bg-slate-900/90 border-b border-purple-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 backdrop-blur-md z-10 shrink-0">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 via-pink-500 to-cyan-400 flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.4)]">
-            <Gamepad2 className="w-5 h-5 text-white" />
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-purple-600 via-pink-500 to-cyan-400 flex items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.4)] shrink-0">
+            <Gamepad2 className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <h2 className="text-sm font-bold text-white tracking-wide">AVINYA DEV ARCADE HUB</h2>
-              <span className="px-2 py-0.5 text-[10px] font-mono rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 font-bold">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h2 className="text-xs sm:text-sm font-bold text-white tracking-wide">AVINYA DEV ARCADE HUB</h2>
+              <span className="px-2 py-0.5 text-[9px] sm:text-[10px] font-mono rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 font-bold">
                 MULTI-GAME SHOWCASE
               </span>
             </div>
-            <p className="text-[11px] text-slate-400">Play memory, bug-hunting & system design games to unlock candidate badges!</p>
+            <p className="text-[10px] sm:text-[11px] text-slate-400 hidden sm:block">Play memory, bug-hunting & system design games to unlock candidate badges!</p>
           </div>
         </div>
 
         {/* Global XP Badge */}
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-400/40 text-purple-300 font-mono text-xs">
+        <div className="flex items-center gap-2 self-end sm:self-auto">
+          <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-purple-500/10 border border-purple-400/40 text-purple-300 font-mono text-[11px] sm:text-xs">
             <Zap className="w-3.5 h-3.5 text-yellow-400 animate-pulse" />
             <span>XP: {totalXP}</span>
           </div>
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-400/40 text-amber-300 font-mono text-xs">
+          <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-amber-500/10 border border-amber-400/40 text-amber-300 font-mono text-[11px] sm:text-xs">
             <Trophy className="w-3.5 h-3.5 text-amber-400" />
-            <span>BEST MOVES: {bestMoves === 999 ? '-' : `${bestMoves}`}</span>
+            <span>BEST: {bestMoves === 999 ? '-' : `${bestMoves}`}</span>
           </div>
         </div>
       </div>
 
       {/* Arcade Game Selector Navigation Tabs */}
-      <div className="flex items-center justify-center gap-2 px-4 py-2 bg-slate-950/80 border-b border-white/10 text-xs font-medium">
+      <div className="flex items-center justify-start sm:justify-center gap-2 px-3 sm:px-4 py-2 bg-slate-950/80 border-b border-white/10 text-xs font-medium overflow-x-auto no-scrollbar shrink-0">
         <button
           onClick={() => {
             soundEngine.playClick();

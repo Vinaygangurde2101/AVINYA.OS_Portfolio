@@ -85,6 +85,17 @@ export const DesktopGrid: React.FC = () => {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Save icon positions whenever updated
   const updatePosition = (id: string, x: number, y: number) => {
     setIconPositions((prev) => {
@@ -211,53 +222,69 @@ export const DesktopGrid: React.FC = () => {
     >
       {/* Onboarding hint banner */}
       {!onboardingDismissed && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3 px-4 py-2 bg-slate-900/90 border border-sky-500/40 text-slate-200 rounded-full shadow-2xl backdrop-blur-md text-xs font-sans animate-bounce">
-          <MousePointer2 className="w-4 h-4 text-sky-400" />
-          <span>Tip: Right-click desktop for options • Drag icons to arrange</span>
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3 px-4 py-2 bg-slate-900/90 border border-sky-500/40 text-slate-200 rounded-full shadow-2xl backdrop-blur-md text-xs font-sans animate-bounce max-w-[90vw] text-center">
+          <MousePointer2 className="w-4 h-4 text-sky-400 shrink-0" />
+          <span className="truncate">{isMobile ? 'Tap icons to open • Tap Start menu below' : 'Tip: Right-click desktop for options • Drag icons to arrange'}</span>
           <button
             onClick={dismissOnboarding}
-            className="p-1 hover:text-white rounded-full hover:bg-white/10"
+            className="p-1 hover:text-white rounded-full hover:bg-white/10 shrink-0"
           >
             <X className="w-3.5 h-3.5" />
           </button>
         </div>
       )}
 
-      {/* Movable Desktop Icons */}
-      {DESKTOP_ITEMS.map((item) => {
-        const pos = iconPositions[item.id] || DEFAULT_POSITIONS[item.id] || { x: 24, y: 24 };
+      {/* MOBILE LAYOUT: Clean Grid of Desktop Icons */}
+      {isMobile ? (
+        <div className="p-4 pt-14 grid grid-cols-3 sm:grid-cols-4 gap-4 overflow-y-auto max-h-[calc(100vh-7rem)] no-scrollbar z-20 relative">
+          {DESKTOP_ITEMS.map((item) => (
+            <div key={item.id} className="flex justify-center">
+              <DesktopIcon
+                item={item}
+                isSelected={selectedId === item.id}
+                onSelect={(id) => setSelectedId(id)}
+                iconSize="medium"
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        /* DESKTOP LAYOUT: Movable Drag-and-Drop Icons */
+        DESKTOP_ITEMS.map((item) => {
+          const pos = iconPositions[item.id] || DEFAULT_POSITIONS[item.id] || { x: 24, y: 24 };
 
-        return (
-          <motion.div
-            key={item.id}
-            drag
-            dragConstraints={containerRef}
-            dragElastic={0.05}
-            dragMomentum={false}
-            initial={{ x: pos.x, y: pos.y }}
-            animate={{ x: pos.x, y: pos.y }}
-            onDragEnd={(event, info) => {
-              const bounds = containerRef.current?.getBoundingClientRect();
-              const maxX = bounds ? bounds.width - 110 : window.innerWidth - 110;
-              const maxY = bounds ? Math.min(bounds.height - 120, 480) : 480;
+          return (
+            <motion.div
+              key={item.id}
+              drag
+              dragConstraints={containerRef}
+              dragElastic={0.05}
+              dragMomentum={false}
+              initial={{ x: pos.x, y: pos.y }}
+              animate={{ x: pos.x, y: pos.y }}
+              onDragEnd={(event, info) => {
+                const bounds = containerRef.current?.getBoundingClientRect();
+                const maxX = bounds ? bounds.width - 110 : window.innerWidth - 110;
+                const maxY = bounds ? Math.min(bounds.height - 120, 480) : 480;
 
-              const newX = Math.max(10, Math.min(maxX, pos.x + info.offset.x));
-              const newY = Math.max(10, Math.min(maxY, pos.y + info.offset.y));
+                const newX = Math.max(10, Math.min(maxX, pos.x + info.offset.x));
+                const newY = Math.max(10, Math.min(maxY, pos.y + info.offset.y));
 
-              updatePosition(item.id, newX, newY);
-            }}
-            whileDrag={{ scale: 1.1, zIndex: 900 }}
-            className="absolute top-0 left-0 z-20 cursor-grab active:cursor-grabbing"
-          >
-            <DesktopIcon
-              item={item}
-              isSelected={selectedId === item.id}
-              onSelect={(id) => setSelectedId(id)}
-              iconSize={iconSize}
-            />
-          </motion.div>
-        );
-      })}
+                updatePosition(item.id, newX, newY);
+              }}
+              whileDrag={{ scale: 1.1, zIndex: 900 }}
+              className="absolute top-0 left-0 z-20 cursor-grab active:cursor-grabbing"
+            >
+              <DesktopIcon
+                item={item}
+                isSelected={selectedId === item.id}
+                onSelect={(id) => setSelectedId(id)}
+                iconSize={iconSize}
+              />
+            </motion.div>
+          );
+        })
+      )}
 
       {/* Rubber Band Drag Marquee Selection Rectangle */}
       {isSelecting && marquee && (

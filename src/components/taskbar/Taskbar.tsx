@@ -116,7 +116,7 @@ export const Taskbar: React.FC = () => {
         </div>
 
         {/* Center Dock Container */}
-        <div className="flex items-center gap-1.5 mx-auto">
+        <div className="flex items-center gap-1 sm:gap-1.5 mx-auto max-w-[calc(100vw-7.5rem)] sm:max-w-none overflow-x-auto no-scrollbar py-0.5 px-1 shrink">
           {/* Animated Start Menu Button */}
           <Tooltip content="Start Menu (Windows 11)">
             <motion.button
@@ -126,7 +126,7 @@ export const Taskbar: React.FC = () => {
                 soundEngine.playClick();
                 toggleStartMenu();
               }}
-              className={`relative w-10 h-10 rounded-xl flex items-center justify-center transition-all ${
+              className={`relative w-9 h-9 sm:w-10 sm:h-10 shrink-0 rounded-xl flex items-center justify-center transition-all ${
                 startMenuOpen
                   ? 'bg-sky-500/30 border border-sky-400/80 shadow-[0_0_20px_rgba(56,189,248,0.45)] text-sky-300'
                   : 'hover:bg-white/10 border border-transparent text-sky-400'
@@ -145,7 +145,7 @@ export const Taskbar: React.FC = () => {
                 soundEngine.playClick();
                 openSearch();
               }}
-              className="h-9 px-3.5 rounded-full bg-slate-900/90 hover:bg-slate-900 border border-white/15 flex items-center gap-2 text-slate-300 hover:text-white transition-all text-xs shadow-inner group"
+              className="h-9 px-2.5 sm:px-3.5 shrink-0 rounded-full bg-slate-900/90 hover:bg-slate-900 border border-white/15 flex items-center gap-2 text-slate-300 hover:text-white transition-all text-xs shadow-inner group"
             >
               <Search className="w-3.5 h-3.5 text-sky-400 group-hover:scale-110 transition-transform" />
               <span className="hidden sm:inline font-sans text-slate-300 font-medium">Search</span>
@@ -164,16 +164,16 @@ export const Taskbar: React.FC = () => {
                 soundEngine.playClick();
                 openSearch();
               }}
-              className="w-10 h-10 rounded-xl hover:bg-white/10 flex items-center justify-center text-slate-300 transition-colors"
+              className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 rounded-xl hover:bg-white/10 hidden sm:flex items-center justify-center text-slate-300 transition-colors"
             >
               <LayoutGrid className="w-4 h-4 text-slate-300" />
             </motion.button>
           </Tooltip>
 
-          <div className="w-[1px] h-5 bg-white/15 mx-1" />
+          <div className="w-[1px] h-5 bg-white/15 mx-0.5 sm:mx-1 shrink-0" />
 
           {/* Dock App Icons List */}
-          <div className="flex items-center gap-1 py-0.5">
+          <div className="flex items-center gap-0.5 sm:gap-1 py-0.5 shrink-0">
             {DOCK_APPS.map((app) => {
               const winState = windows[app.id];
               const isOpen = winState?.isOpen;
@@ -184,7 +184,7 @@ export const Taskbar: React.FC = () => {
               return (
                 <div
                   key={app.id}
-                  className="relative"
+                  className="relative shrink-0"
                   onMouseEnter={() => setHoveredAppId(app.id)}
                   onMouseLeave={() => setHoveredAppId(null)}
                 >
@@ -194,7 +194,7 @@ export const Taskbar: React.FC = () => {
                       whileTap={{ scale: 0.92, y: 0 }}
                       transition={{ type: 'spring', stiffness: 420, damping: 18 }}
                       onClick={() => handleDockClick(app.id)}
-                      className={`relative w-10 h-10 rounded-xl flex items-center justify-center transition-all ${
+                      className={`relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all ${
                         isActive
                           ? 'bg-sky-500/25 border border-sky-400/60 shadow-[0_0_16px_rgba(56,189,248,0.35)]'
                           : isOpen
@@ -202,7 +202,7 @@ export const Taskbar: React.FC = () => {
                           : 'hover:bg-white/10 border border-transparent'
                       }`}
                     >
-                      {getWindowsIcon(app.id || app.icon, 'w-6 h-6 filter drop-shadow')}
+                      {getWindowsIcon(app.id || app.icon, 'w-5 h-5 sm:w-6 sm:h-6 filter drop-shadow')}
 
                       {/* Active Indicator Sliding Cyan Pill */}
                       {isActive && (

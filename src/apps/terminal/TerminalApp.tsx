@@ -820,9 +820,25 @@ export const TerminalApp: React.FC = () => {
           </div>
         )}
 
+        {/* Mobile Touch Quick Bar */}
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 text-[11px] sm:hidden">
+          {['help', 'ls', 'about', 'projects', 'skills', 'contact', 'clear'].map((cmd) => (
+            <button
+              key={cmd}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleChipClick(cmd);
+              }}
+              className="px-2 py-0.5 rounded bg-cyan-500/20 hover:bg-cyan-500/40 border border-cyan-400/40 text-cyan-200 font-mono text-[10px] shrink-0"
+            >
+              {cmd}
+            </button>
+          ))}
+        </div>
+
         {/* Input Prompt Line inside scroll container */}
-        <div className={`flex items-center gap-2 pt-3 border-t ${styles.border} mt-4`}>
-          <span className={`${styles.prompt} font-bold shrink-0`}>
+        <div className={`flex items-center gap-2 pt-2 border-t ${styles.border} mt-2`}>
+          <span className={`${styles.prompt} font-bold shrink-0 text-[11px] sm:text-xs`}>
             vinay@avinya-os:{currentDir === '/home/vinay' ? '~' : currentDir}$
           </span>
           <input
@@ -832,8 +848,8 @@ export const TerminalApp: React.FC = () => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             autoFocus
-            className={`w-full bg-transparent outline-none font-mono text-xs ${styles.text} ${styles.caret}`}
-            placeholder="Type command or click corner 'Commands'..."
+            className={`w-full bg-transparent outline-none font-mono text-[11px] sm:text-xs ${styles.text} ${styles.caret}`}
+            placeholder="Type command..."
           />
         </div>
 
