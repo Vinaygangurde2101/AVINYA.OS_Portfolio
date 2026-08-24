@@ -25,11 +25,8 @@ export const WindowHeader: React.FC<WindowHeaderProps> = ({
     <div
       onPointerDown={onHeaderPointerDown}
       onDoubleClick={onMaximize}
-      className="h-10 px-3 bg-slate-900/95 border-b border-white/10 flex items-center justify-between select-none cursor-grab active:cursor-grabbing rounded-t-xl relative"
+      className="h-10 px-3 bg-slate-900/95 border-b border-white/10 flex items-center justify-between select-none cursor-grab active:cursor-grabbing rounded-t-xl"
     >
-      {/* Mobile Top Grab Bar Indicator Pill */}
-      <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-10 h-1 rounded-full bg-white/25 sm:hidden pointer-events-none" />
-
       {/* App Icon & Title */}
       <div className="flex items-center gap-2 overflow-hidden">
         <div className="flex items-center justify-center w-5 h-5">
