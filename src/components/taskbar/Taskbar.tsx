@@ -87,8 +87,8 @@ export const Taskbar: React.FC = () => {
       <QuickSettingsFlyout isOpen={quickSettingsOpen} onClose={() => setQuickSettingsOpen(false)} />
       <CalendarFlyout isOpen={calendarOpen} onClose={() => setCalendarOpen(false)} />
 
-      {/* Full-width Windows 11 Acrylic Interactive Taskbar */}
-      <div className="fixed bottom-0 left-0 right-0 h-12 z-[9000] bg-[#0d131f]/90 backdrop-blur-3xl border-t border-white/15 flex items-center justify-between px-3 select-none shadow-[0_-5px_25px_rgba(0,0,0,0.5)]">
+      {/* Windows 11 Acrylic Interactive Floating Dock / Taskbar */}
+      <div className="fixed bottom-2 sm:bottom-0 left-2 sm:left-0 right-2 sm:right-0 h-12 z-[9000] bg-[#0d131f]/90 backdrop-blur-3xl border border-white/20 sm:border-x-0 sm:border-b-0 sm:border-t rounded-2xl sm:rounded-none flex items-center justify-between px-2 sm:px-3 select-none shadow-[0_10px_30px_rgba(0,0,0,0.6)] sm:shadow-[0_-5px_25px_rgba(0,0,0,0.5)]">
         
         {/* Left Interactive Weather Pill */}
         <div className="hidden md:flex items-center">
