@@ -7,7 +7,7 @@ export const profileData: ProfileData = {
   role: 'Full-Stack Developer',
   location: 'Shirpur, Maharashtra, India',
   status: 'SEEKING AI/ML INTERNSHIP',
-  avatar: '',
+  avatar: '/images/profile.jpg',
   bio: [
     'Full-Stack Developer and Computer Engineering student (GPA: 8.46/10, graduating 2027) with hands-on experience in AI-powered systems, MERN stack, Java Spring MVC, and Python ML pipelines.',
     'Built production-grade projects integrating AI content moderation (Hugging Face & Perspective API), real-time AR/WebRTC, OCR/NLP diagnostic report analysis, and MediaPipe computer vision.',

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { queryPortfolioAI, ChatMessage } from '../../utils/aiEngine';
+import { profileData } from '../../data/profile';
 import { useWindowStore } from '../../store/useWindowStore';
 import { soundEngine } from '../../utils/soundEngine';
 import {
@@ -294,8 +295,12 @@ export const AIAssistantApp: React.FC = () => {
       <div className="px-4 py-3 bg-slate-900/90 border-b border-cyan-500/20 flex items-center justify-between backdrop-blur-md z-10">
         <div className="flex items-center gap-3">
           <div className="relative">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-600 via-sky-500 to-emerald-500 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.4)]">
-              <Bot className="w-5 h-5 text-white" />
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-600 via-sky-500 to-emerald-500 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.4)] overflow-hidden border border-cyan-400/40">
+              {profileData.avatar ? (
+                <img src={profileData.avatar} alt={profileData.name} className="w-full h-full object-cover" />
+              ) : (
+                <Bot className="w-5 h-5 text-white" />
+              )}
             </div>
             <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 border-2 border-slate-900 rounded-full animate-pulse" />
           </div>
@@ -350,8 +355,12 @@ export const AIAssistantApp: React.FC = () => {
             className={`flex gap-3 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             {msg.sender === 'ai' && (
-              <div className="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/40 flex items-center justify-center shrink-0 shadow-md mt-0.5">
-                <Bot className="w-4 h-4 text-cyan-400" />
+              <div className="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/40 flex items-center justify-center shrink-0 shadow-md mt-0.5 overflow-hidden">
+                {profileData.avatar ? (
+                  <img src={profileData.avatar} alt={profileData.name} className="w-full h-full object-cover" />
+                ) : (
+                  <Bot className="w-4 h-4 text-cyan-400" />
+                )}
               </div>
             )}
 
