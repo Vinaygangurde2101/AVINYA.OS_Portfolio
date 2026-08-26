@@ -12,10 +12,9 @@ export const projectsData: ProjectItem[] = [
     problem: 'Social media platforms struggle with real-time toxic content filtering and manual moderation overhead.',
     approach: 'Integrated Hugging Face sentiment/toxicity models and Google Perspective API into Express.js REST middleware to automatically analyze and flag toxic comments before database insertion.',
     solution: 'Automated real-time toxic content moderation, implemented RBAC admin management, and provided custom personalized user feeds.',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/projects/socialbuddy.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=1200&q=80'
+      '/images/projects/socialbuddy.jpg'
     ],
     technologies: ['MongoDB', 'Express.js', 'React', 'Node.js', 'JWT', 'Hugging Face AI', 'Perspective API', 'Tailwind CSS', 'Redux', 'REST APIs'],
     role: ['Full-Stack Developer', 'AI Integration Lead'],
@@ -39,9 +38,9 @@ export const projectsData: ProjectItem[] = [
     problem: 'Healthcare emergency response platforms lacked real-time dispatch tracking and automated triage processing for scanned patient diagnostic reports.',
     approach: 'Developed an AI/ML-powered diagnostic report analysis module in Python using OCR (Tesseract) and NLP techniques to automatically extract patient vitals from scanned medical reports and flag critical cases for faster triage. Integrated MySQL via Hibernate/JPA and containerized with Docker.',
     solution: 'Automated patient vital extraction from scanned diagnostic reports, reduced emergency triage response times, and authored JUnit & Mockito test suites for critical emergency modules.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/projects/mers.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80'
+      '/images/projects/mers.jpg'
     ],
     technologies: ['Java', 'Spring Boot', 'Spring Security', 'Hibernate/JPA', 'MySQL', 'Python', 'OCR (Tesseract)', 'NLP', 'Docker', 'REST APIs', 'Swagger', 'JUnit', 'Mockito', 'Maven'],
     role: ['Full-Stack Java Engineer', 'AI/ML Module Developer', 'System Architect'],
@@ -65,9 +64,9 @@ export const projectsData: ProjectItem[] = [
     problem: 'E-commerce live video streams lacked interactive virtual try-ons, making customers hesitant when buying garments during live streams.',
     approach: 'Combined MediaPipe pose landmark extraction with custom WebGL 3D shaders, Socket.IO state synchronization, and WebRTC peer-to-peer video streaming.',
     solution: 'Achieved real-time 3D garment tracking over live seller video feeds with low latency WebRTC video streaming.',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/projects/webon.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80'
+      '/images/projects/webon.jpg'
     ],
     technologies: ['Node.js', 'WebGL', 'MediaPipe (ML Pose Estimation)', 'WebRTC', 'Socket.IO', 'Express', 'JavaScript (ES6+)'],
     role: ['AI / WebGL Developer', 'Full-Stack Engineer'],
@@ -91,9 +90,9 @@ export const projectsData: ProjectItem[] = [
     problem: 'Farmers faced difficulties finding verified agricultural service providers and equipment rental scheduling in local regions.',
     approach: 'Designed normalized MySQL schemas, developed 15+ RESTful APIs with Spring Security role authentication, and built responsive JSP user dashboards.',
     solution: 'Streamlined agricultural service requests, booking management, and provider verification into a unified web portal.',
-    image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/projects/agriconnect.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80'
+      '/images/projects/agriconnect.jpg'
     ],
     technologies: ['Java', 'Spring Boot', 'Hibernate', 'MySQL', 'JSP', 'REST APIs', 'Spring Security'],
     role: ['Backend & Full-Stack Java Developer'],
@@ -117,9 +116,9 @@ export const projectsData: ProjectItem[] = [
     problem: 'Standard static developer portfolios fail to engage recruiters and showcase complex full-stack frontend architecture.',
     approach: 'Engineered a modular window state manager using Zustand, custom CSS glassmorphism UI system, interactive CLI parser with command history and auto-complete, and integrated generative AI capabilities.',
     solution: 'Delivered an interactive operating system web app that increases recruiter dwell time and wows visitors with interactive project explorations.',
-    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/projects/avinya-os.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80'
+      '/images/projects/avinya-os.jpg'
     ],
     technologies: ['React 18', 'TypeScript', 'Tailwind CSS', 'Zustand', 'Framer Motion', 'Vite', 'Lucide Icons', 'Generative AI'],
     role: ['Creator', 'UI/UX Designer', 'Lead Frontend Engineer'],
