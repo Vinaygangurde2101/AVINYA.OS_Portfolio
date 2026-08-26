@@ -12,7 +12,7 @@ export const ResumeApp: React.FC = () => {
   return (
     <div className="space-y-4 max-w-4xl mx-auto pb-8 select-none">
       {/* PDF Toolbar */}
-      <div className="p-3 rounded-xl bg-slate-900/90 border border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+      <div className="p-3 rounded-xl bg-slate-900/90 border border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono print:hidden">
         <div className="flex items-center gap-2 text-slate-300">
           <FileText className="w-4 h-4 text-sky-400" />
           <span className="font-semibold text-slate-100">Vinay_Shivdas_Gangurde_Resume.pdf</span>
@@ -41,7 +41,7 @@ export const ResumeApp: React.FC = () => {
 
           <button
             onClick={() => window.print()}
-            className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-white/10 flex items-center gap-1.5 transition-all"
+            className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-white/10 flex items-center gap-1.5 transition-all cursor-pointer"
           >
             <Printer className="w-3.5 h-3.5" />
             <span>Print</span>
@@ -62,6 +62,7 @@ export const ResumeApp: React.FC = () => {
 
       {/* Printable Professional ATS Resume Document */}
       <div
+        id="resume-printable-document"
         className="p-8 sm:p-12 rounded-2xl bg-slate-950 border border-white/15 shadow-2xl space-y-5 text-slate-200 font-sans transition-all duration-200 mx-auto max-w-[850px]"
         style={{ transform: `scale(${zoomLevel / 100})`, transformOrigin: 'top center' }}
       >

@@ -78,3 +78,75 @@
   scrollbar-width: none;  /* Firefox */
 }
 
+/* Printable Resume PDF Document Styles */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    overflow: visible !important;
+    user-select: auto !important;
+    -webkit-user-select: auto !important;
+  }
+
+  /* Hide all non-printable desktop OS chrome, wallpaper, taskbar, toolbars */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* Expose printable resume document only */
+  #resume-printable-document,
+  #resume-printable-document * {
+    visibility: visible !important;
+  }
+
+  #resume-printable-document {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    transform: none !important;
+    border-radius: 0 !important;
+  }
+
+  #resume-printable-document h1 {
+    color: #0284c7 !important;
+  }
+
+  #resume-printable-document h2 {
+    color: #0284c7 !important;
+    border-bottom-color: #cbd5e1 !important;
+  }
+
+  #resume-printable-document .text-slate-300,
+  #resume-printable-document .text-slate-200,
+  #resume-printable-document .text-slate-100 {
+    color: #0f172a !important;
+  }
+
+  #resume-printable-document .text-slate-400,
+  #resume-printable-document .text-slate-500 {
+    color: #475569 !important;
+  }
+
+  #resume-printable-document .text-sky-400 {
+    color: #0284c7 !important;
+  }
+
+  #resume-printable-document .border-slate-700,
+  #resume-printable-document .border-slate-800 {
+    border-color: #cbd5e1 !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm;
+  }
+}
+
