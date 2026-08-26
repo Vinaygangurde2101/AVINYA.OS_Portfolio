@@ -14,7 +14,8 @@ export const projectsData: ProjectItem[] = [
     solution: 'Automated real-time toxic content moderation, implemented RBAC admin management, and provided custom personalized user feeds.',
     image: '/images/projects/socialbuddy.jpg',
     gallery: [
-      '/images/projects/socialbuddy.jpg'
+      '/images/projects/socialbuddy.jpg',
+      '/images/projects/socialbuddy-arch.jpg'
     ],
     technologies: ['MongoDB', 'Express.js', 'React', 'Node.js', 'JWT', 'Hugging Face AI', 'Perspective API', 'Tailwind CSS', 'Redux', 'REST APIs'],
     role: ['Full-Stack Developer', 'AI Integration Lead'],
