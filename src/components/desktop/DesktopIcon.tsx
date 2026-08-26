@@ -17,23 +17,27 @@ export const DesktopIcon: React.FC<DesktopIconProps> = ({ item, isSelected, onSe
   const openWindow = useWindowStore((s) => s.openWindow);
   const windows = useWindowStore((s) => s.windows);
 
+  const lastClickTimeRef = React.useRef<number>(0);
+
   const isOpen = !!windows[item.id]?.isOpen;
 
-  const handlePointerDown = (e: React.PointerEvent) => {
+  const handleInteraction = (e: React.SyntheticEvent) => {
     e.stopPropagation();
-    onSelect(item.id);
-    soundEngine.playClick();
-  };
+    const now = Date.now();
+    const timeDiff = now - lastClickTimeRef.current;
+    const DOUBLE_TAP_DELAY = 350;
 
-  const handleDoubleClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    openWindow(item.id);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    e.stopPropagation();
-    openWindow(item.id);
+    if (timeDiff > 0 && timeDiff < DOUBLE_TAP_DELAY) {
+      // Double click / Double tap -> Open Window
+      openWindow(item.id);
+      soundEngine.playClick();
+      lastClickTimeRef.current = 0;
+    } else {
+      // Single click / Single tap -> Select Icon
+      onSelect(item.id);
+      soundEngine.playClick();
+      lastClickTimeRef.current = now;
+    }
   };
 
   const getContainerDimensions = () => {
@@ -63,9 +67,7 @@ export const DesktopIcon: React.FC<DesktopIconProps> = ({ item, isSelected, onSe
       tabIndex={0}
       role="button"
       aria-label={`Open ${item.title}`}
-      onPointerDown={handlePointerDown}
-      onDoubleClick={handleDoubleClick}
-      onTouchEnd={handleTouchEnd}
+      onClick={handleInteraction}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();

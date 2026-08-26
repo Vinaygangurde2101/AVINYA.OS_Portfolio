@@ -224,7 +224,7 @@ export const DesktopGrid: React.FC = () => {
       {!onboardingDismissed && (
         <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3 px-4 py-2 bg-slate-900/90 border border-sky-500/40 text-slate-200 rounded-full shadow-2xl backdrop-blur-md text-xs font-sans animate-bounce max-w-[90vw] text-center">
           <MousePointer2 className="w-4 h-4 text-sky-400 shrink-0" />
-          <span className="truncate">{isMobile ? 'Tap icons to open • Tap Start menu below' : 'Tip: Right-click desktop for options • Drag icons to arrange'}</span>
+          <span className="truncate">{isMobile ? 'Double-tap icons to open • Tap Start menu below' : 'Tip: Double-click icons to open • Drag icons to arrange'}</span>
           <button
             onClick={dismissOnboarding}
             className="p-1 hover:text-white rounded-full hover:bg-white/10 shrink-0"
