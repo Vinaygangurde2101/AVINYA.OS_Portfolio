@@ -10,7 +10,7 @@ export const ResumeApp: React.FC = () => {
   const [zoomLevel, setZoomLevel] = useState(100);
 
   return (
-    <div className="space-y-4 max-w-4xl mx-auto pb-8 select-none">
+    <div className="space-y-4 max-w-4xl mx-auto pb-8 select-none print:p-0 print:m-0 print:max-w-none print:pb-0">
       {/* PDF Toolbar */}
       <div className="p-3 rounded-xl bg-slate-900/90 border border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono print:hidden">
         <div className="flex items-center gap-2 text-slate-300">
@@ -63,7 +63,7 @@ export const ResumeApp: React.FC = () => {
       {/* Printable Professional ATS Resume Document */}
       <div
         id="resume-printable-document"
-        className="p-8 sm:p-12 rounded-2xl bg-slate-950 border border-white/15 shadow-2xl space-y-5 text-slate-200 font-sans transition-all duration-200 mx-auto max-w-[850px]"
+        className="p-8 sm:p-12 rounded-2xl bg-slate-950 border border-white/15 shadow-2xl space-y-5 text-slate-200 font-sans transition-all duration-200 mx-auto max-w-[850px] print:p-0 print:m-0 print:border-none print:shadow-none print:bg-white print:max-w-none"
         style={{ transform: `scale(${zoomLevel / 100})`, transformOrigin: 'top center' }}
       >
         {/* Header */}
