@@ -97,7 +97,7 @@ export const Window: React.FC<WindowProps> = ({ windowState, children }) => {
         top: isMobile ? 36 : 36,
         left: 0,
         width: '100vw',
-        height: isMobile ? 'calc(100vh - 80px)' : 'calc(100vh - 84px)',
+        height: isMobile ? 'calc(100dvh - 76px)' : 'calc(100vh - 84px)',
         zIndex
       }
     : {
@@ -141,7 +141,13 @@ export const Window: React.FC<WindowProps> = ({ windowState, children }) => {
             onHeaderPointerDown={handlePointerDown}
           />
 
-          <div className="flex-1 overflow-auto p-3 sm:p-6 bg-slate-950/60 text-slate-100 font-sans">
+          <div
+            className={`flex-1 overflow-hidden flex flex-col text-slate-100 font-sans ${
+              id === 'ai-assistant' || (isMobile && id !== 'resume')
+                ? 'p-0 bg-slate-950/90'
+                : 'p-3 sm:p-6 bg-slate-950/60 overflow-y-auto'
+            }`}
+          >
             {children}
           </div>
         </motion.div>

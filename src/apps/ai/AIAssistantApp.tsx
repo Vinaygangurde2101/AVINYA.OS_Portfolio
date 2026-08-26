@@ -468,7 +468,7 @@ export const AIAssistantApp: React.FC = () => {
       </div>
 
       {/* Suggested Quick Prompts */}
-      <div className="px-4 py-2 bg-slate-950/60 border-t border-white/5 flex gap-2 overflow-x-auto no-scrollbar scrollbar-none">
+      <div className="px-3 py-2 bg-slate-950/80 border-t border-white/5 flex gap-2 overflow-x-auto no-scrollbar scrollbar-none shrink-0 z-10">
         {SUGGESTED_PROMPTS.map((prompt, pIdx) => (
           <button
             key={pIdx}
@@ -482,20 +482,20 @@ export const AIAssistantApp: React.FC = () => {
         ))}
       </div>
 
-      {/* Bottom Input Field */}
-      <div className="p-3 bg-slate-900/95 border-t border-cyan-500/20 backdrop-blur-md">
+      {/* Bottom Input Search Bar */}
+      <div className="p-2.5 sm:p-3 bg-slate-900/95 border-t border-cyan-500/30 backdrop-blur-md shrink-0 z-20 sticky bottom-0">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             handleSend();
           }}
-          className="flex items-center gap-2 bg-slate-950 border border-cyan-500/30 focus-within:border-cyan-400 rounded-xl p-1.5 transition-all shadow-inner"
+          className="flex items-center gap-2 bg-slate-950 border border-cyan-500/40 focus-within:border-cyan-400 rounded-xl p-1.5 transition-all shadow-inner"
         >
           {/* Microphone Speech Recognition Button */}
           <button
             type="button"
             onClick={toggleMicInput}
-            className={`p-2 rounded-lg transition-colors flex items-center justify-center cursor-pointer ${
+            className={`p-2 rounded-lg transition-colors flex items-center justify-center cursor-pointer shrink-0 ${
               isListening
                 ? 'bg-rose-500/20 text-rose-400 border border-rose-500/50 animate-pulse'
                 : 'text-slate-400 hover:text-cyan-300 hover:bg-white/5'
@@ -512,13 +512,13 @@ export const AIAssistantApp: React.FC = () => {
             onChange={(e) => setInputQuery(e.target.value)}
             placeholder={isListening ? 'Listening now...' : 'Ask Vinay AI anything...'}
             disabled={isLoading}
-            className="flex-1 bg-transparent px-2 py-1.5 text-xs text-slate-100 placeholder-slate-500 outline-none font-medium"
+            className="flex-1 min-w-0 bg-transparent px-2 py-1.5 text-xs sm:text-sm text-slate-100 placeholder-slate-400 outline-none font-medium"
           />
 
           <button
             type="submit"
             disabled={!inputQuery.trim() || isLoading}
-            className="p-2 rounded-lg bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 disabled:opacity-40 disabled:hover:from-cyan-500 disabled:hover:to-sky-500 text-slate-950 font-bold transition-all shadow-md flex items-center justify-center cursor-pointer"
+            className="p-2 rounded-lg bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 disabled:opacity-40 disabled:hover:from-cyan-500 disabled:hover:to-sky-500 text-slate-950 font-bold transition-all shadow-md flex items-center justify-center cursor-pointer shrink-0"
           >
             <Send className="w-4 h-4" />
           </button>
