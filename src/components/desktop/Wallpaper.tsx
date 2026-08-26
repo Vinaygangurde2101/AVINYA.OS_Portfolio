@@ -20,20 +20,30 @@ export const Wallpaper: React.FC = () => {
     return wallpaperOptions.find((w) => w.id === wallpaperId) || wallpaperOptions[0];
   }, [wallpaperId]);
 
-  // Robust Video Playback Handler with Autoplay Policy & User Gesture Unmute
+  // Robust Video Playback Handler with Mobile Autoplay Policy & User Gesture Unmute
   useEffect(() => {
     if (activeWallpaper.isVideo && videoRef.current) {
       const video = videoRef.current;
       video.currentTime = 0;
-      video.muted = videoWallpaperMuted;
       
       const attemptPlay = async () => {
         try {
+          // Attempt playback muted first to respect strict mobile autoplay policy
+          video.muted = true;
           await video.play();
           setIsPlaying(true);
           setIsVideoEnded(false);
+          
+          // Unmute if user has enabled sound
+          if (!videoWallpaperMuted) {
+            try {
+              video.muted = false;
+            } catch {
+              video.muted = true;
+            }
+          }
         } catch (err) {
-          console.warn('Browser blocked unmuted autoplay. Playing muted until first user interaction:', err);
+          console.warn('Mobile browser blocked autoplay. Retrying muted fallback:', err);
           video.muted = true;
           try {
             await video.play();
@@ -50,7 +60,7 @@ export const Wallpaper: React.FC = () => {
     }
   }, [activeWallpaper.id, videoWallpaperReplayTrigger]);
 
-  // Global user interaction listener to un-mute audio as soon as user clicks anywhere
+  // Global user touch & click gesture listener to un-mute audio & resume video on mobile
   useEffect(() => {
     const handleFirstGesture = () => {
       if (videoRef.current && activeWallpaper.isVideo) {
@@ -65,11 +75,15 @@ export const Wallpaper: React.FC = () => {
 
     window.addEventListener('click', handleFirstGesture);
     window.addEventListener('pointerdown', handleFirstGesture);
+    window.addEventListener('touchstart', handleFirstGesture, { passive: true });
+    window.addEventListener('touchend', handleFirstGesture, { passive: true });
     window.addEventListener('keydown', handleFirstGesture);
 
     return () => {
       window.removeEventListener('click', handleFirstGesture);
       window.removeEventListener('pointerdown', handleFirstGesture);
+      window.removeEventListener('touchstart', handleFirstGesture);
+      window.removeEventListener('touchend', handleFirstGesture);
       window.removeEventListener('keydown', handleFirstGesture);
     };
   }, [activeWallpaper.isVideo, videoWallpaperMuted, isVideoEnded]);
@@ -153,14 +167,37 @@ export const Wallpaper: React.FC = () => {
             autoPlay
             playsInline
             preload="auto"
-            muted={videoWallpaperMuted}
+            muted={true}
             onEnded={handleVideoEnded}
+            onCanPlay={() => {
+              if (videoRef.current && videoRef.current.paused && !isVideoEnded) {
+                videoRef.current.play().catch(() => {});
+              }
+            }}
+            onLoadedMetadata={() => {
+              if (videoRef.current && videoRef.current.paused && !isVideoEnded) {
+                videoRef.current.play().catch(() => {});
+              }
+            }}
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
             className={`absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 transition-opacity duration-1000 ease-in-out ${
               isVideoEnded ? 'opacity-0' : 'opacity-100'
             }`}
           />
+
+          {/* Mobile / Tap-to-Play Video Control Overlay if autoplay was restricted */}
+          {!isVideoEnded && !isPlaying && (
+            <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 pointer-events-auto">
+              <button
+                onClick={handleReplayClick}
+                className="px-4 py-2 rounded-full bg-cyan-500/90 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-2xl backdrop-blur-md animate-bounce cursor-pointer border border-cyan-300"
+              >
+                <Play className="w-4 h-4 fill-slate-950" />
+                <span>Tap to Play Intro Video</span>
+              </button>
+            </div>
+          )}
 
           {/* Vignette & Ambient Backdrop Shadows for UI contrast */}
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/30 z-1" />
