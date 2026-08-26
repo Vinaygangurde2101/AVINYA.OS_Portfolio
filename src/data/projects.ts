@@ -116,9 +116,9 @@ export const projectsData: ProjectItem[] = [
     problem: 'Standard static developer portfolios fail to engage recruiters and showcase complex full-stack frontend architecture.',
     approach: 'Engineered a modular window state manager using Zustand, custom CSS glassmorphism UI system, interactive CLI parser with command history and auto-complete, and integrated generative AI capabilities.',
     solution: 'Delivered an interactive operating system web app that increases recruiter dwell time and wows visitors with interactive project explorations.',
-    image: '/images/projects/avinya-os.jpg',
+    image: '/images/wp.png',
     gallery: [
-      '/images/projects/avinya-os.jpg'
+      '/images/wp.png'
     ],
     technologies: ['React 18', 'TypeScript', 'Tailwind CSS', 'Zustand', 'Framer Motion', 'Vite', 'Lucide Icons', 'Generative AI'],
     role: ['Creator', 'UI/UX Designer', 'Lead Frontend Engineer'],
