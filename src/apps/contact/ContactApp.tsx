@@ -536,7 +536,7 @@ export const ContactApp: React.FC = () => {
               {[
                 { title: 'SocialBuddy AI Repo', url: 'https://github.com/Vinaygangurde2101/socialbuddy' },
                 { title: 'MERS Healthcare Repo', url: 'https://github.com/Vinaygangurde2101/medical-emergency-response-system' },
-                { title: 'WebOn AR Shopping Repo', url: 'https://github.com/Vinaygangurde2101/webon-ar-shopping' },
+                { title: 'WebOn AR Shopping Repo', url: 'https://github.com/rohannn3215/Avinya---AR-Fashion-Marketplace' },
                 { title: 'AgriConnect System Repo', url: 'https://github.com/Vinaygangurde2101/agriconnect' },
                 { title: 'AVINYA.OS Portfolio Repo', url: 'https://github.com/Vinaygangurde2101/AVINYA.OS_Portfolio' }
               ].map((repo, idx) => (

@@ -24,7 +24,7 @@ export const BrowserApp: React.FC<BrowserAppProps> = ({ initialUrl = 'https://gi
   const bookmarks = [
     { title: 'SocialBuddy AI Repo', url: 'https://github.com/Vinaygangurde2101/socialbuddy' },
     { title: 'MERS Healthcare Repo', url: 'https://github.com/Vinaygangurde2101/medical-emergency-response-system' },
-    { title: 'WebOn AR Repo', url: 'https://github.com/Vinaygangurde2101/webon-ar-shopping' },
+    { title: 'WebOn AR Repo', url: 'https://github.com/rohannn3215/Avinya---AR-Fashion-Marketplace' },
     { title: 'AgriConnect Repo', url: 'https://github.com/Vinaygangurde2101/agriconnect' },
     { title: 'AVINYA.OS Portfolio Repo', url: 'https://github.com/Vinaygangurde2101/AVINYA.OS_Portfolio' },
     { title: 'Vinay GitHub Profile', url: 'https://github.com/Vinaygangurde2101' },
@@ -267,7 +267,7 @@ export const BrowserApp: React.FC<BrowserAppProps> = ({ initialUrl = 'https://gi
                 {[
                   { title: 'SocialBuddy AI Repo', url: 'https://github.com/Vinaygangurde2101/socialbuddy', tech: 'MERN + Hugging Face' },
                   { title: 'MERS Healthcare Repo', url: 'https://github.com/Vinaygangurde2101/medical-emergency-response-system', tech: 'Spring Boot + Docker' },
-                  { title: 'WebOn AR Shopping Repo', url: 'https://github.com/Vinaygangurde2101/webon-ar-shopping', tech: 'MediaPipe + WebGL' },
+                  { title: 'WebOn AR Shopping Repo', url: 'https://github.com/rohannn3215/Avinya---AR-Fashion-Marketplace', tech: 'MediaPipe + WebGL' },
                   { title: 'AgriConnect Repo', url: 'https://github.com/Vinaygangurde2101/agriconnect', tech: 'Java Spring Boot' },
                   { title: 'AVINYA.OS Portfolio Repo', url: 'https://github.com/Vinaygangurde2101/AVINYA.OS_Portfolio', tech: 'React + TypeScript' }
                 ].map((item, idx) => (

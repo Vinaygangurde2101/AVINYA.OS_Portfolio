@@ -156,7 +156,7 @@ export const AboutApp: React.FC = () => {
           {[
             { title: 'SocialBuddy AI', url: 'https://github.com/Vinaygangurde2101/socialbuddy', desc: 'MERN + Hugging Face & Perspective API AI moderation' },
             { title: 'MERS Healthcare', url: 'https://github.com/Vinaygangurde2101/medical-emergency-response-system', desc: 'Spring Boot RBAC + OCR/NLP diagnostic report triage' },
-            { title: 'WebOn AR Shopping', url: 'https://github.com/Vinaygangurde2101/webon-ar-shopping', desc: 'MediaPipe 33 pose landmarks + WebGL 3D shaders' },
+            { title: 'WebOn AR Shopping', url: 'https://github.com/rohannn3215/Avinya---AR-Fashion-Marketplace', desc: 'MediaPipe 33 pose landmarks + WebGL 3D shaders' },
             { title: 'AgriConnect System', url: 'https://github.com/Vinaygangurde2101/agriconnect', desc: 'Spring Boot agricultural portal + 15+ REST APIs' },
             { title: 'AVINYA.OS Portfolio', url: 'https://github.com/Vinaygangurde2101/AVINYA.OS_Portfolio', desc: 'Cyberpunk Desktop Web Operating System Portfolio' }
           ].map((repo, idx) => (

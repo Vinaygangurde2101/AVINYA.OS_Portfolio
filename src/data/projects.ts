@@ -72,7 +72,7 @@ export const projectsData: ProjectItem[] = [
     technologies: ['Node.js', 'WebGL', 'MediaPipe (ML Pose Estimation)', 'WebRTC', 'Socket.IO', 'Express', 'JavaScript (ES6+)'],
     role: ['AI / WebGL Developer', 'Full-Stack Engineer'],
     outcome: 'Rendered 3D virtual try-ons with 33 body landmarks driving WebGL vertex shaders in live WebRTC video streams.',
-    githubUrl: 'https://github.com/Vinaygangurde2101/webon-ar-shopping',
+    githubUrl: 'https://github.com/rohannn3215/Avinya---AR-Fashion-Marketplace',
     featured: true,
     metrics: [
       { label: 'Body Landmarks', value: '33 Key Points' },
