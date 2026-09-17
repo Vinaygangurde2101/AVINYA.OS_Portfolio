@@ -28,7 +28,7 @@ export const profileData: ProfileData = {
   stats: [
     { label: 'GPA Grade', value: '8.46 / 10' },
     { label: 'Graduation Year', value: '2027' },
-    { label: 'Featured Projects', value: '6+' },
+    { label: 'Featured Projects', value: '9+' },
     { label: 'Google Student Ambassador', value: 'Google' }
   ]
 };

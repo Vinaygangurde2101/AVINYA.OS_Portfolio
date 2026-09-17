@@ -46,7 +46,7 @@ export const projectsData: ProjectItem[] = [
     technologies: ['Java', 'Spring Boot', 'Spring Security', 'Hibernate/JPA', 'MySQL', 'Python', 'OCR (Tesseract)', 'NLP', 'Docker', 'REST APIs', 'Swagger', 'JUnit', 'Mockito', 'Maven'],
     role: ['Full-Stack Java Engineer', 'AI/ML Module Developer', 'System Architect'],
     outcome: 'Delivered an end-to-end automated healthcare triage and emergency dispatch portal containerized with Docker.',
-    githubUrl: 'https://github.com/Vinaygangurde2101/medical-emergency-response-system',
+    githubUrl: 'https://github.com/Vinaygangurde2101/Medical_Emergency_Response_System',
     featured: true,
     metrics: [
       { label: 'System Roles', value: '4 (Admin/Doctor/Patient/Ambulance)' },
@@ -130,6 +130,110 @@ export const projectsData: ProjectItem[] = [
       { label: 'Architecture', value: 'React + Zustand + Vite' },
       { label: 'UI Theme', value: 'Cyberpunk Glassmorphism' },
       { label: 'Interactivity', value: 'Multi-Window & CLI Shell' }
+    ]
+  },
+  {
+    id: 'foodies',
+    title: 'Foodies — Interactive Food Discovery & Delivery Platform',
+    slug: 'foodies',
+    category: 'Full-Stack',
+    year: '2025',
+    shortDescription: 'Full-stack food ordering and recipe discovery app built with MERN stack, Redux state management, live cart tracking, and JWT authentication.',
+    description: 'Developed Foodies, an end-to-end MERN stack web application featuring secure JWT authentication, real-time food catalog search, interactive cart management, dynamic recipe recommendation engine, and seamless checkout flow.',
+    problem: 'Traditional food ordering applications lack interactive recipe discovery and real-time cart state synchronization across sessions.',
+    approach: 'Built responsive React frontend components with Redux Toolkit for centralized cart state management, connected to an Express/MongoDB REST API with JWT authorization.',
+    solution: 'Delivered a high-performance food ordering and recipe discovery portal with instant cart updates and responsive UI.',
+    image: '/images/projects/foodies.jpg',
+    gallery: [
+      '/images/projects/foodies.jpg'
+    ],
+    technologies: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Redux Toolkit', 'Tailwind CSS', 'JWT', 'REST APIs'],
+    role: ['Full-Stack Developer', 'Frontend Lead'],
+    outcome: 'Engineered a full-stack MERN food delivery application with dynamic cart state management and secure RESTful backend APIs.',
+    githubUrl: 'https://github.com/Vinaygangurde2101/Foodies',
+    featured: true,
+    metrics: [
+      { label: 'Architecture', value: 'Full-Stack MERN' },
+      { label: 'State Management', value: 'Redux Toolkit' },
+      { label: 'Authentication', value: 'JWT & Local Storage' }
+    ]
+  },
+  {
+    id: 'medreach',
+    title: 'MedReach — Remote Telemedicine & Healthcare Access Platform',
+    slug: 'medreach',
+    category: 'Full-Stack',
+    year: '2025',
+    shortDescription: 'Role-based healthcare portal built with Java Spring Boot, Spring Security RBAC, MySQL, React, and Docker containerization.',
+    description: 'Built MedReach to bridge healthcare access for remote communities. Implemented doctor discovery, real-time appointment scheduling, role-based access control (Patients, Doctors, Admins), digital health records vault, and prescription tracking.',
+    problem: 'Patients in remote regions face barriers accessing doctor consultations and maintaining secure, centralized medical record histories.',
+    approach: 'Designed secure Spring Boot REST microservices with Spring Security RBAC, paired with a React frontend and MySQL relational schema via Hibernate/JPA.',
+    solution: 'Streamlined doctor appointment scheduling and digital medical document management into a secure, containerized healthcare portal.',
+    image: '/images/projects/medreach.jpg',
+    gallery: [
+      '/images/projects/medreach.jpg'
+    ],
+    technologies: ['Java', 'Spring Boot', 'Spring Security', 'Hibernate/JPA', 'MySQL', 'React', 'REST APIs', 'Swagger', 'Docker', 'Maven'],
+    role: ['Full-Stack Java Engineer', 'Backend Architect'],
+    outcome: 'Architected a secure telemedicine portal containerized with Docker, featuring fine-grained Spring Security RBAC.',
+    githubUrl: 'https://github.com/Vinaygangurde2101/MedReach',
+    featured: true,
+    metrics: [
+      { label: 'Security', value: 'Spring Security RBAC' },
+      { label: 'Backend', value: 'Spring Boot REST & MySQL' },
+      { label: 'Deployment', value: 'Docker Containerized' }
+    ]
+  },
+  {
+    id: 'bharatsync',
+    title: 'BharatSync — Digital India Unified Public Services Portal',
+    slug: 'bharatsync',
+    category: 'Full-Stack',
+    year: '2024',
+    shortDescription: 'Enterprise public services portal built with Java Spring Boot microservices, Spring Security RBAC, MySQL, Angular/React, and REST APIs.',
+    description: 'Created BharatSync to digitize and unify local public services and municipal utility workflows into an enterprise multi-role dashboard. Features secure RESTful microservices, Spring Security role authentication, document validation pipelines, and real-time citizen status tracking.',
+    problem: 'Fragmented municipal and public utility portals slow down citizen application processing, service requests, and scheme tracking.',
+    approach: 'Engineered a scalable Java Spring Boot backend architecture integrated with Spring Security RBAC, Hibernate/JPA for MySQL transaction management, and an Angular/React frontend UI.',
+    solution: 'Consolidated municipal public services and citizen utility request tracking into a secure, enterprise Java web application.',
+    image: '/images/projects/bharatsync.jpg',
+    gallery: [
+      '/images/projects/bharatsync.jpg'
+    ],
+    technologies: ['Java', 'Spring Boot', 'Spring Security', 'Hibernate/JPA', 'MySQL', 'Angular', 'React', 'REST APIs', 'Maven'],
+    role: ['Full-Stack Java Engineer', 'Enterprise System Architect'],
+    outcome: 'Centralized public service request tracking and citizen utility workflows with a secure Java Spring Boot microservices backend.',
+    githubUrl: 'https://github.com/Vinaygangurde2101/BharatSync',
+    featured: true,
+    metrics: [
+      { label: 'Backend Architecture', value: 'Java Spring Boot REST' },
+      { label: 'Security & Auth', value: 'Spring Security RBAC' },
+      { label: 'Frontend Stack', value: 'Angular & React UI' }
+    ]
+  },
+  {
+    id: 'peblo-tv',
+    title: 'Peblo TV — Web Video Streaming & Content Media Platform',
+    slug: 'peblo-tv',
+    category: 'Mobile & Web',
+    year: '2025',
+    shortDescription: 'Interactive web streaming application built with React, TypeScript, custom HTML5 media player controls, and channel subscriptions.',
+    description: 'Designed and built Peblo TV, a modern video media platform featuring smooth video streaming, custom video player overlay controls, content category filters, channel subscriptions, and user playlists.',
+    problem: 'Standard web video players lack customized overlay controls, responsive layout adaptations, and seamless video category navigation.',
+    approach: 'Engineered custom HTML5 Video API wrapper components with custom playback controls, dynamic channel feed filtering, and responsive Tailwind dark mode UI.',
+    solution: 'Delivered an immersive web streaming experience with custom video player overlays and dynamic channel feeds.',
+    image: '/images/projects/peblo-tv.jpg',
+    gallery: [
+      '/images/projects/peblo-tv.jpg'
+    ],
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'HTML5 Video API', 'Node.js', 'Express', 'MongoDB', 'REST APIs'],
+    role: ['Frontend Developer', 'UI/UX Engineer'],
+    outcome: 'Developed a video streaming platform with custom video player controls and responsive dark glassmorphism UI.',
+    githubUrl: 'https://github.com/Vinaygangurde2101/Peblo-TV',
+    featured: true,
+    metrics: [
+      { label: 'Media Player', value: 'Custom HTML5 & React Controls' },
+      { label: 'UI Theme', value: 'Dark Glassmorphism' },
+      { label: 'Features', value: 'Playlists & Channel Feeds' }
     ]
   }
 ];
